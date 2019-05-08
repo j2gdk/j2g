@@ -7,9 +7,14 @@
 <title>Hello JohnCena</title>
 </head>
 <body>
+<<<<<<< HEAD
+Who is JohnCena?
+<input type="text">
+=======
 
 <title>
 Yian Un
 </title>
+>>>>>>> branch 'master' of https://github.com/j2gdk/j2g
 </body>
 </html>

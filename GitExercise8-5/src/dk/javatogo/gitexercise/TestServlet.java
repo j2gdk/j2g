@@ -28,6 +28,7 @@ public class TestServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String model = request.getParameter("model");
+		
 	}
 
 }
