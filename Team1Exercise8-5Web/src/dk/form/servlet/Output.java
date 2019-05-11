@@ -34,7 +34,7 @@ public class Output extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("previous") != null) {
-			response.sendRedirect("Create");
+			response.sendRedirect("form");
 		} else {
 			request.getRequestDispatcher("output.jsp").forward(request,response);
 		}
