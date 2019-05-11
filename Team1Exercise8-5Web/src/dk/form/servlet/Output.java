@@ -35,11 +35,9 @@ public class Output extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("previous") != null) {
 			response.sendRedirect("Form");
-<<<<<<< HEAD
-		}else{
-=======
+
 		} else {
->>>>>>> branch 'master' of https://github.com/j2gdk/j2g
+
 			response.sendRedirect("Output");
 		}
 	}
