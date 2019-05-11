@@ -13,6 +13,9 @@
 
 </head>
 <body class="myBody">
+
+<h1 class="h1">Results for User</h1>
+
 <form action="Output" method="post">
 
 <table class="myTable2">
