@@ -21,7 +21,7 @@
  
  if (list != null) { 
  %> 
-   <table class="myTable"> 
+   <table> 
   <tr> 
   	<td>Name</td>
   	<td>Email</td>
@@ -48,5 +48,6 @@
  } 
 %> 
 </form>
+<p><input type="submit" name="previous" value="Previous"></p>
 </body>
 </html>
