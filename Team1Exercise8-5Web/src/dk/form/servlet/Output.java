@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Output
  */
-@WebServlet(name = "output", urlPatterns = { "/output" })
+@WebServlet("/Output")
 public class Output extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,9 +34,9 @@ public class Output extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("previous") != null) {
-			response.sendRedirect("form");
+			response.sendRedirect("Form");
 		} else {
-			request.getRequestDispatcher("output.jsp").forward(request,response);
+			response.sendRedirect("Output");
 		}
 		
 	}

@@ -8,9 +8,15 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<link type="text/css" rel="stylesheet" href="css/User.css">
+
 </head>
-<body>
-<form action="output" method="post">
+<body class="myBody">
+<form action="Output" method="post">
+
+<table class="myTable2">
+
 <%
  Users inputUsers = (Users) request.getAttribute("inputUsers");
 %>
@@ -21,33 +27,29 @@
  
  if (list != null) { 
  %> 
-   <table> 
-  <tr> 
-  	<td>Name</td>
-  	<td>Email</td>
-  	<td>Age</td>
-    	
-  </tr>
+   
+<tr>
+	<th class="myTh1" class="myTh2">Name</th>
+	<th class="myTh1" class="myTh2">Email</th>
+	<th class="myTh1" class="myTh2">Age</th>
+</tr>
+
   <% 
   for (Users u: list) { 
   %> 
   
-  
-  <tr>	
-  
-   <td><%= u.getName() %></td> 
-   <td><%= u.getEmail() %></td> 
-   <td><%= u.getAge() %></td> 
-   
-  </tr> 
-  <%  
-  } 
-  %> 
-   </table> 
+<tr>
+		<th class="myTh2"> <%=u.getName() %></th>
+		<th class="myTh2"> <%=u.getEmail()%></th>
+		<th class="myTh2"> <%=u.getAge()%></th>
+</tr>
+	<%}%>
+</table>
+ 
 <% 
  } 
 %> 
+<p class="myP"><input type="submit" name="previous" value="Previous"></p>
 </form>
-<p><input type="submit" name="previous" value="Previous"></p>
 </body>
 </html>
