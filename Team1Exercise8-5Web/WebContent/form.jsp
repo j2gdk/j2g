@@ -7,6 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="form" method="post">
+Name: <input type="text" name="name" value=""><br>
+Email: <input type="text" name="email" value=""><br>
+Age: <select id="dropdown" name="age">
+						<option value=""></option>
+  						<option value="30">30</option>
+ 					    <option value="40" >40</option>
+ 					    <option value="50" >50</option>
+  						<option value="60" >60</option>
+ 					    <option value="70" >70</option>
+						</select><br>
+<input type="submit" name="submit" value="submit" >
+</form>
 </body>
 </html>
