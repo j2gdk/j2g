@@ -15,7 +15,7 @@ import dk.form.data.Users;
 /**
  * Servlet implementation class Form
  */
-@WebServlet(name = "form", urlPatterns = { "/form" })
+@WebServlet("/Form")
 public class Form extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -66,7 +66,7 @@ public class Form extends HttpServlet {
 		list.add(u);
 		ses.setAttribute("userlist", list);
 		
-		response.sendRedirect("output");
+		response.sendRedirect("Output");
 			
 		} 
 

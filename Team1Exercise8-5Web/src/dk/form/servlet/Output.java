@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Output
  */
-@WebServlet(name = "output", urlPatterns = { "/output" })
+@WebServlet("/Output")
 public class Output extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,11 @@ public class Output extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("previous") != null) {
 			response.sendRedirect("Form");
+<<<<<<< HEAD
 		}else{
+=======
+		} else {
+>>>>>>> branch 'master' of https://github.com/j2gdk/j2g
 			response.sendRedirect("Output");
 		}
 	}
