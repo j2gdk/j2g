@@ -26,7 +26,9 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().write("This is doGet");
+		response.getWriter().write("This is doGet - new - pc3");
+		response.getWriter().write("This is doGet - new - pc2");
+		response.getWriter().write("This is doGet - new - pc1");
 	}
 
 	/**
