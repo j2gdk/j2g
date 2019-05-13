@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+.myTable{
+	width:50%;
+}
+
+.tr1{
+	background-color:lightblue;
+}
+
+
+.tr2{
+	background-color:lightyellow;
+}
