@@ -28,6 +28,7 @@ public class exercise extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getParameter("hey du der");
+		request.getParameter("hamzah"); 
 	}
 
 	/**
