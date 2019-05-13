@@ -27,7 +27,12 @@ public class exercise extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
 		request.getParameter("hey du AFZAL");
+=======
+		request.getParameter("hey du der");
+		request.getParameter("hamzah"); 
+>>>>>>> branch 'master' of https://github.com/j2gdk/j2g.git
 	}
 
 	/**
