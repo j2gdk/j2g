@@ -26,9 +26,13 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
+		response.getWriter().write("This is doGet - new 2");
+=======
 		response.getWriter().write("This is doGet - new - pc3");
 		response.getWriter().write("This is doGet - new - pc2");
 		response.getWriter().write("This is doGet - new - pc1");
+>>>>>>> branch 'master' of https://github.com/j2gdk/j2g.git
 	}
 
 	/**
@@ -39,5 +43,6 @@ public class TestServlet extends HttpServlet {
 		
 		System.out.println("Hello Java!!");
 	}
+	
 
 }
