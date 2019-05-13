@@ -26,9 +26,7 @@ public class outprint extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("email", request.getSession().getAttribute("email"));
-		request.setAttribute("name", request.getSession().getAttribute("name"));
-		request.setAttribute("age", request.getSession().getAttribute("age"));
+		
 		request.getRequestDispatcher("outprint.jsp").forward(request, response);
 	}
 
