@@ -29,7 +29,7 @@ public class CreatePerson extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher(""); // første jsp
+		request.getRequestDispatcher("CreateForm.jsp").forward(request, response);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class CreatePerson extends HttpServlet {
 		list.add(emailPerson);
 		session.setAttribute("NewEmailpersons", list);	
 		
-		response.sendRedirect("InfoPersons");
+		response.sendRedirect("infopersons");
 		
 	}
 

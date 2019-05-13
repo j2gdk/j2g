@@ -26,7 +26,7 @@ public class InfoPersons extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("...."); // anden jsp
+		request.getRequestDispatcher("DisplayInfo.jsp").forward(request, response);
 	}
 
 	/**
@@ -34,14 +34,14 @@ public class InfoPersons extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String previous = request.getParameter("previous"); // opret en submit knap, så man kan gå tilbage
+		String previous = request.getParameter("previous");
 		
 		if(previous != null)
 		{
-			response.sendRedirect("createperson"); // tilbage til første servlet
+			response.sendRedirect("createperson");
 		} else 
 		{
-			response.sendRedirect("infopersons"); // forbliv på anden servlet
+			response.sendRedirect("infopersons");
 		}
 	}
 

@@ -4,6 +4,7 @@ public class Person {
 	private String email = null;
 	private String name = null;
 	private String age = null;
+	
 	public String getEmail() {
 		return email;
 	}
