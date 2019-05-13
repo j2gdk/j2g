@@ -29,6 +29,8 @@ public class Merge extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		response.getWriter().write("Hello everyone");
+		
+		response.getWriter().print("Girl Power");
 	}
 
 	/**
