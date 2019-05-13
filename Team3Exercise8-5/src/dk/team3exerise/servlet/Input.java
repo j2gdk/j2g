@@ -1,11 +1,14 @@
 package dk.team3exerise.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Input
@@ -37,9 +40,37 @@ public class Input extends HttpServlet {
 		request.getSession().setAttribute ("name", request.getParameter("name"));
 		request.getSession().setAttribute ("age", request.getParameter("age"));
 		
+		
+		
+		Student s = new Student();
+		s.setEmail(request.getParameter("email")); 
+		s.setName(request.getParameter("name"));
+		s.setAge(request.getParameter("age"));
+		
+		HttpSession ses = request.getSession(); 
+
+		ArrayList<Student> oldList = (ArrayList<Student>) ses.getAttribute("studentlist"); 
+		ArrayList<Student> list = null; 
+
+
+		if (oldList == null) { 
+		// første gang 
+		list = new ArrayList<Student>(); 
+
+		} else { 
+		// ikke første gang 
+		list = oldList; 
+		} 
+
+
+
+		list.add(s); 
+
+
+		ses.setAttribute("studentlist", list); 
+
+
 		response.sendRedirect("outprint");
-		
-		
 	}
 
 }
