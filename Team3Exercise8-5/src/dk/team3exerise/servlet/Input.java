@@ -41,7 +41,6 @@ public class Input extends HttpServlet {
 		request.getSession().setAttribute ("age", request.getParameter("age"));
 		
 		
-		
 		Student s = new Student();
 		s.setEmail(request.getParameter("email")); 
 		s.setName(request.getParameter("name"));
