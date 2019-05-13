@@ -27,7 +27,8 @@ public class MergeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.getWriter().write("Du skal ikke merge Awes..ok?! ");
+		response.getWriter().write("Du skal ikke merge Awes..ok?! adil");
+		
 
 	}
 
