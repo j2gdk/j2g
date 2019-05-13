@@ -14,7 +14,7 @@
 
 Name: <input type="text" name="name" value=""><br><br> <!--  autocomplete="off" -->
 
-Email: <input type="text" name="email" value=""><br><br> <!--  autocomplete="off" -->
+Email: <input type="email" name="email" value=""><br><br> <!--  autocomplete="off" -->
 
 Age: <select id="dropdown" name="age">
 						<option value=""></option>

@@ -24,8 +24,8 @@
  	%> 
    
 <tr class="tr1">
-	<th>Name</th>
 	<th>Email</th>
+	<th>Name</th>
 	<th>Age</th>
 </tr>
 
