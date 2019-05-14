@@ -11,7 +11,7 @@
 </head>
 <body  class="myBody">
 
-<h1 class="h1">Form for User!</h1>
+<h1 class="h1">Add New Employee!</h1>
 
 <form action="Form" method="post">
 <table  class="myTable1">
@@ -36,7 +36,7 @@
 </tr>
 
 <tr>
-	<td><p class="myP"><input type="submit" name="submit" value="Opret"/></p></td>
+	<td><p class="myP"><input type="submit" name="submit" value="Save Employee"/></p></td>
 </tr>
 </table>
 </form>

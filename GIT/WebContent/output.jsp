@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.Remove"%>
 <%@page import="dk.form.data.Users"%>
 <%@page import="java.util.ArrayList"%> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -32,6 +33,7 @@
  %> 
    
 <tr>
+	<th class="myTh1" class="myTh2">ID</th>
 	<th class="myTh1" class="myTh2">Name</th>
 	<th class="myTh1" class="myTh2">Email</th>
 	<th class="myTh1" class="myTh2">Age</th>
@@ -42,9 +44,12 @@
   %> 
   
 <tr>
+		<th class="myTh2"> <%=u.getId()%></th>
 		<th class="myTh2"> <%=u.getName() %></th>
 		<th class="myTh2"> <%=u.getEmail()%></th>
 		<th class="myTh2"> <%=u.getAge()%></th>
+		
+		
 </tr>
 	<%}%>
 </table>
