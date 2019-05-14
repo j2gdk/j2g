@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Output
+ * Servlet implementation class Final
  */
-@WebServlet("/Output")
-public class Output extends HttpServlet {
+@WebServlet("/Final")
+public class Final extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Output() {
+    public Final() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,23 +26,16 @@ public class Output extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("output.jsp").forward(request,response);
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("final.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("previous") != null) {
-			response.sendRedirect("Form");
-
-		} else {
-
-			response.sendRedirect("Output");
-		}
-		
-		
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("final.jsp").forward(request,response);
 	}
-	
 
 }
