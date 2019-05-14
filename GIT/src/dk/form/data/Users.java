@@ -1,6 +1,7 @@
 package dk.form.data;
 
 public class Users {
+	private static int count = 0;
 	private String email = null;
 	private String name = null;
 	private String age = null;
@@ -10,6 +11,8 @@ public class Users {
 		return id;
 	}
 	public void setId(int id) {
+		count++;
+		id = count;
 		this.id = id;
 	}
 	public String getEmail() {

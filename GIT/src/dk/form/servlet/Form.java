@@ -67,6 +67,7 @@ public class Form extends HttpServlet {
 		}
 
 		list.add(u);
+		
 		ses.setAttribute("userlist", list);
 		response.sendRedirect("Output");
 			
