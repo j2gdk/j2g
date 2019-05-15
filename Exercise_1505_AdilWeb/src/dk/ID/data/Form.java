@@ -61,9 +61,12 @@ public class Form extends HttpServlet {
 		list = oldList;
 		}
 		
-		for(Person a: list){
-			emailPerson.setId(id);
+		int maxId = 0;
+		for(Person listPerson: list){
+			
+			
 			}
+		emailPerson.setId(maxId+1);
 		
 		list.add(emailPerson);
 		session.setAttribute("NewEmailpersons", list);	

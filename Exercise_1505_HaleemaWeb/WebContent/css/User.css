@@ -1,0 +1,57 @@
+@CHARSET "ISO-8859-1";
+
+
+.myBody {
+	background-image:url("https://s2.best-wallpaper.net/wallpaper/1366x768/1807/Pink-peonies-tender_1366x768.jpg");
+}
+
+.h1 {
+	color:#ff69b4;
+	font-family: verdana;
+	text-align:center;
+	text-decoration: underline;	
+}
+.myTable1 {
+	margin-left:auto; 
+    margin-right:auto;
+	background-color:#ffc6e44d;
+	border: 10px solid white;
+	width:300px;
+	padding: 20px
+}
+
+.myTable2 {
+	margin-left:auto; 
+    margin-right:auto;
+	background-color:#ffc6e44d;
+	width:550px;
+	padding: 20px;
+	border-collapse: collapse;
+}
+
+.myTd {
+	height:30px;
+	color:#ff69b4;
+	font-weight: bold;
+}
+
+.myTdNames{
+		font-weight: bold;	
+	
+}
+	
+ .myP {
+ 	text-align: center;
+ }
+
+.myTh1 {
+	color:#ff1d8e;
+	border:6px solid white;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+.myTh2 {
+	border:6px solid white;
+	font-weight: bold;
+}
