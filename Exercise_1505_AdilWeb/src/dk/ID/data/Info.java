@@ -1,4 +1,4 @@
-package dk.email.data;
+package dk.ID.data;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class InfoPersons
  */
-@WebServlet("/infopersons")
-public class InfoPersons extends HttpServlet {
+@WebServlet("/info")
+public class Info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InfoPersons() {
+    public Info() {
         super();
         // TODO Auto-generated constructor stub
     }

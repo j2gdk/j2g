@@ -1,4 +1,4 @@
-package dk.email.data;
+package dk.form.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class InfoPersons
+ * Servlet implementation class Output
  */
-@WebServlet("/infopersons")
-public class InfoPersons extends HttpServlet {
+@WebServlet("/Output")
+public class Output extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InfoPersons() {
+    public Output() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +26,7 @@ public class InfoPersons extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("DisplayInfo.jsp").forward(request, response);
+		request.getRequestDispatcher("output.jsp").forward(request,response);
 	}
 
 	/**
@@ -34,21 +34,17 @@ public class InfoPersons extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String previous = request.getParameter("previous");
 		
-		if(previous != null)
-		{
-			response.sendRedirect("createperson");
-		} else 
-		{
-			response.sendRedirect("infopersons");
+		if (request.getParameter("previous") != null) {
+			response.sendRedirect("Form");
+
+		} else {
+
+			response.sendRedirect("Output");
 		}
-
+		
+		
 	}
+	
+
 }
-
-
-
-
-
-

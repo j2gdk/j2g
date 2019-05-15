@@ -1,4 +1,4 @@
-package dk.email.data;
+package dk.ID.data;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class CreatePerson
  */
-@WebServlet("/createperson")
-public class CreatePerson extends HttpServlet {
+@WebServlet("/form")
+public class Form extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CreatePerson() {
+    public Form() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,9 +44,7 @@ public class CreatePerson extends HttpServlet {
 		emailPerson.setEmail(request.getParameter("name"));
 		emailPerson.setName(request.getParameter("email"));
 		emailPerson.setAge(request.getParameter("age"));
-		
-		int id = System.identityHashCode(emailPerson);
-		emailPerson.setId(id);
+		emailPerson.setAge(request.getParameter("id"));
 		
 		//request.setAttribute("EmailPersons", emailPerson);
 		
@@ -62,6 +60,16 @@ public class CreatePerson extends HttpServlet {
 
 		list = oldList;
 		}
+		
+		int maxId = 0;
+		for(Person listPerson: list){
+			int  personId = listPerson.getId();
+			if(maxId<personId){
+				maxId = personId;
+			}
+			
+		}
+		emailPerson.setId(maxId+1);
 		
 		list.add(emailPerson);
 		session.setAttribute("NewEmailpersons", list);	

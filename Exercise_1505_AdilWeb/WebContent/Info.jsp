@@ -1,4 +1,5 @@
-<%@page import="dk.email.data.Person"%>
+<%@page import="dk.ID.data.Person"%>
+<%@page import="dk.ID.data.Person"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -43,6 +44,7 @@
 		<th> <%=a.getName()%></th>
 		<th><form action="delete" method="post">
 		<input type="submit" name="delete" value="Delete">
+		<input type="hidden" name="getid" value="<%=a.getId() %>">
 		</form></th>
 </tr>
 	<%}%>
