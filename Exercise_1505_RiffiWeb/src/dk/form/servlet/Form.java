@@ -48,9 +48,7 @@ public class Form extends HttpServlet {
 		u.setName(request.getParameter("name"));
 		u.setEmail(request.getParameter("email"));
 		u.setAge(request.getParameter("age"));
-		
-		int id = System.identityHashCode(u);
-		u.setId(id);
+	
 		
 		request.setAttribute("inputUsers", u);
 		
@@ -65,6 +63,17 @@ public class Form extends HttpServlet {
 		} else {
 			list = oldlist;
 		}
+		
+		//
+		int maxId = 0;
+		for (Users listUser: list){
+			int userId = listUser.getId();
+			
+			if(maxId<userId){
+				maxId = userId;
+			}
+		}
+			u.setId(maxId+1);
 
 		list.add(u);
 		ses.setAttribute("userlist", list);
