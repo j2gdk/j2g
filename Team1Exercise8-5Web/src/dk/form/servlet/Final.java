@@ -35,7 +35,11 @@ public class Final extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("final.jsp").forward(request,response);
+		if (request.getParameter("delete") != null) {
+			response.sendRedirect("Final");
+		} else {
+			response.sendRedirect("Output");
+		}
 	}
 
 }
