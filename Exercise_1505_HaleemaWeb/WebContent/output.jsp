@@ -15,7 +15,7 @@
 </head>
 <body class="myBody">
 
-<h1 class="h1">Results for User!</h1>
+<h1 class="h1">Results for Employee!</h1>
 
 <table class="myTable2">
 
@@ -42,7 +42,7 @@
   
 <tr>
 		<th class="myTh2"> <%=u.getId()%></th>
-		<th class="myTh2"> <%=u.getName() %></th>
+		<th class="myTh2"><a href="Update"> <%=u.getName() %></a></th>
 		<th class="myTh2"> <%=u.getEmail()%></th>
 		<th class="myTh2"> <%=u.getAge()%></th>
 		<th>
@@ -59,7 +59,9 @@
 <% 
  } 
 %> 
+<form action="Output" method="post">
 <p class="myP"><input type="submit" name="previous" value="Previous"></p>
-
+</form>
 </body>
 </html>
+
