@@ -33,8 +33,8 @@ public class Form extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Users u = new Users();
 		u.setName("");
-		u.setEmail("");;
-		u.setAge("");;
+		u.setEmail("");
+		u.setAge("");
 		
 		request.setAttribute("inputUsers", u);
 		request.getRequestDispatcher("form.jsp").forward(request,response);
@@ -51,7 +51,7 @@ public class Form extends HttpServlet {
 		
 		int id = System.identityHashCode(u);
 		u.setId(id);
-		
+	      
 		request.setAttribute("inputUsers", u);
 		
 		HttpSession ses = request.getSession(true);
@@ -67,8 +67,8 @@ public class Form extends HttpServlet {
 		}
 
 		list.add(u);
-		ses.setAttribute("userlist", list);
 		
+		ses.setAttribute("userlist", list);
 		response.sendRedirect("Output");
 			
 		} 

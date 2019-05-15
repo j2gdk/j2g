@@ -2,11 +2,11 @@
 
 
 .myBody {
-	background-image:url("https://i2.wp.com/media.boingboing.net/wp-content/uploads/2018/05/cool-background1.png?w=1192&ssl=1");
+	background-image:url("https://s2.best-wallpaper.net/wallpaper/1366x768/1807/Pink-peonies-tender_1366x768.jpg");
 }
 
 .h1 {
-	color:black;
+	color:#ff69b4;
 	font-family: verdana;
 	text-align:center;
 	text-decoration: underline;	
@@ -16,7 +16,7 @@
     margin-right:auto;
 	background-color:#ffc6e44d;
 	border: 10px solid white;
-	width:400px;
+	width:300px;
 	padding: 20px
 }
 

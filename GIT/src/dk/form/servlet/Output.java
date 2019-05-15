@@ -40,8 +40,6 @@ public class Output extends HttpServlet {
 
 			response.sendRedirect("Output");
 		}
-		
-		
 	}
 	
 
