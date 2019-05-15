@@ -1,7 +1,10 @@
 package dk.form.servlet;
 
 import java.io.IOException;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +16,16 @@ import javax.servlet.http.HttpSession;
 import dk.form.data.Users;
 
 /**
- * Servlet implementation class Form
+ * Servlet implementation class Delete
  */
-@WebServlet("/Form")
-public class Form extends HttpServlet {
+@WebServlet("/Delete")
+public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Form() {
+    public Delete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,46 +34,49 @@ public class Form extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users u = new Users();
-		u.setName("");
-		u.setEmail("");
-		u.setAge("");
-		
-		request.setAttribute("inputUsers", u);
-		request.getRequestDispatcher("form.jsp").forward(request,response);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users u = new Users();
-		u.setName(request.getParameter("name"));
-		u.setEmail(request.getParameter("email"));
-		u.setAge(request.getParameter("age"));
+		HttpSession ses = request.getSession();
 		
-		int id = System.identityHashCode(u);
-		u.setId(id);
-	      
-		request.setAttribute("inputUsers", u);
-		
-		HttpSession ses = request.getSession(true);
-		
-		@SuppressWarnings("unchecked")
-		ArrayList<Users> oldlist = (ArrayList<Users>)ses.getAttribute("userlist");
-		ArrayList<Users> list = null;
-		
-		if (oldlist == null){
-			list = new ArrayList<Users>();
+		ArrayList<String> model = null; 
+
+		if (ses.getAttribute("user")== null){
+			model = new ArrayList<String>();
 		} else {
-			list = oldlist;
+			model = (ArrayList<String>)ses.getAttribute("user");
 		}
 
-		list.add(u);
-				
-		ses.setAttribute("userlist", list);
+		model.remove(request.getParameter("tv"));
+		ses.setAttribute("user", model);
+
+		for(String tv: model){
+			response.getWriter().write(tv+"/n");
+		}
+	}
+
+	}
+
+		
+		
+		List<String> list = new ArrayList<>();
+
+		for (Iterator<String> iterator = list.iterator(); iterator.hasNext();) {
+		    String string = iterator.next();
+		    if (string.isEmpty()) {
+		        // Remove the current element from the iterator and the list.
+		        iterator.remove();
+
 		response.sendRedirect("Output");
 			
 		} 
 
+	}
+
+
+	}
 	}
