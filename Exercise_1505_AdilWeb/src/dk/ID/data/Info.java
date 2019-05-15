@@ -26,7 +26,7 @@ public class Info extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("DisplayInfo.jsp").forward(request, response);
+		request.getRequestDispatcher("Info.jsp").forward(request, response);
 	}
 
 	/**
@@ -38,10 +38,10 @@ public class Info extends HttpServlet {
 		
 		if(previous != null)
 		{
-			response.sendRedirect("createperson");
+			response.sendRedirect("form");
 		} else 
 		{
-			response.sendRedirect("infopersons");
+			response.sendRedirect("info");
 		}
 
 	}

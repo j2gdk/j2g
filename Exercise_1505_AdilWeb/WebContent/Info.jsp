@@ -8,11 +8,11 @@
 <head>
 
 	<title>Table</title>
-	<link type="text/css" rel="stylesheet" href="css/Email.css">
+	<link type="text/css" rel="stylesheet" href="css/ID.css">
 </head>
 <body>
 
-<form action="infopersons" method="post">
+<form action="info" method="post">
 
 <table class="myTable" border="1">
 	
@@ -44,7 +44,7 @@
 		<th> <%=a.getName()%></th>
 		<th><form action="delete" method="post">
 		<input type="submit" name="delete" value="Delete">
-		<input type="hidden" name="getid" value="<%=a.getId() %>">
+		<input type="hidden" name="Id" value="<%=a.getId() %>">
 		</form></th>
 </tr>
 	<%}%>

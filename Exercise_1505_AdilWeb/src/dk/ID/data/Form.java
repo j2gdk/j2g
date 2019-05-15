@@ -31,7 +31,7 @@ public class Form extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Person emailPerson = new Person();
 		//request.setAttribute("EmailPersons", emailPerson);
-		request.getRequestDispatcher("CreateForm.jsp").forward(request, response);
+		request.getRequestDispatcher("Form.jsp").forward(request, response);
 	}
 
 	/**
@@ -44,7 +44,6 @@ public class Form extends HttpServlet {
 		emailPerson.setEmail(request.getParameter("name"));
 		emailPerson.setName(request.getParameter("email"));
 		emailPerson.setAge(request.getParameter("age"));
-		emailPerson.setAge(request.getParameter("id"));
 		
 		//request.setAttribute("EmailPersons", emailPerson);
 		
@@ -74,7 +73,7 @@ public class Form extends HttpServlet {
 		list.add(emailPerson);
 		session.setAttribute("NewEmailpersons", list);	
 		
-		response.sendRedirect("infopersons");
+		response.sendRedirect("info");
 		
 	}
 

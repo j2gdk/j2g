@@ -9,7 +9,7 @@
 <body>
 <body>
 
-<form action="createperson" method="post">
+<form action="form" method="post">
 
 
 Name: <input type="text" name="name" value=""><br><br> <!--  autocomplete="off" -->
