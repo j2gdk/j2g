@@ -1,4 +1,4 @@
-package dk.email.data;
+package dk.ID.data;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MergeServlet
+ * Servlet implementation class InfoPersons
  */
-@WebServlet("/MergeServlet")
-public class MergeServlet extends HttpServlet {
+@WebServlet("/info")
+public class Info extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MergeServlet() {
+    public Info() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,17 +26,29 @@ public class MergeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.getWriter().write("Du skal ikke merge Awes..ok?! adil");
-		
-
+		request.getRequestDispatcher("DisplayInfo.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
+		
+		String previous = request.getParameter("previous");
+		
+		if(previous != null)
+		{
+			response.sendRedirect("createperson");
+		} else 
+		{
+			response.sendRedirect("infopersons");
+		}
 
+	}
 }
+
+
+
+
+
+
