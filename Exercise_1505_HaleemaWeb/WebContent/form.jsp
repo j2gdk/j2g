@@ -38,7 +38,13 @@
 <tr>
 	<td><p class="myP"><input type="submit" name="submit" value="Save Employee"/></p></td>
 </tr>
+
+
 </table>
+</form>
+
+<form action="Update" method="post">
+<p class="myP"><input type="submit" name="Update" value="Update"></p>
 </form>
 </body>
 </html>
