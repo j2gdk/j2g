@@ -17,8 +17,6 @@
 
 <h1 class="h1">Results for User!</h1>
 
-<form action="Output" method="post">
-
 <table class="myTable2">
 
 <%
@@ -47,8 +45,13 @@
 		<th class="myTh2"> <%=u.getName() %></th>
 		<th class="myTh2"> <%=u.getEmail()%></th>
 		<th class="myTh2"> <%=u.getAge()%></th>
-		<th><input type="button" name="delete" value="Delete"></th> 
-		</tr>
+		<th>
+<form action="Delete" method="post">
+		<input type="submit" name="Delete" value="Delete">
+		<input type="Hidden" name="Id" value="<%=u.getId()%>">
+</form>
+		</th> 
+</tr>
    
 	<%}%>
 </table>
@@ -58,6 +61,5 @@
 %> 
 <p class="myP"><input type="submit" name="previous" value="Previous"></p>
 
-</form>
 </body>
 </html>
