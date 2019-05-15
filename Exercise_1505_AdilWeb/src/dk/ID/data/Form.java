@@ -63,9 +63,12 @@ public class Form extends HttpServlet {
 		
 		int maxId = 0;
 		for(Person listPerson: list){
-			
-			
+			int  personId = listPerson.getId();
+			if(maxId<personId){
+				maxId = personId;
 			}
+			
+		}
 		emailPerson.setId(maxId+1);
 		
 		list.add(emailPerson);

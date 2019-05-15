@@ -36,11 +36,18 @@ public class Delete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		Person ArrayList = (Person) request.getAttribute("NewEmailpersons");
+		Person list = (Person) request.getAttribute("NewEmailpersons");
 		String delete = request.getParameter("delete");
 		
 		if (delete != null) 
 		{
+			for(Person listPerson: list){
+				int  personId = listPerson.getId();
+				if(maxId<personId){
+					maxId = personId;
+				}
+				
+			
 			ArrayList.remove();
 			response.sendRedirect("infopersons");
 		} else 

@@ -44,6 +44,7 @@
 		<th> <%=a.getName()%></th>
 		<th><form action="delete" method="post">
 		<input type="submit" name="delete" value="Delete">
+		<input type="hidden" name="getid" value="<%=a.getId() %>">
 		</form></th>
 </tr>
 	<%}%>
