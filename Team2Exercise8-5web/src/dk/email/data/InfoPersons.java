@@ -43,6 +43,12 @@ public class InfoPersons extends HttpServlet {
 		{
 			response.sendRedirect("infopersons");
 		}
-	}
 
+	}
 }
+
+
+
+
+
+

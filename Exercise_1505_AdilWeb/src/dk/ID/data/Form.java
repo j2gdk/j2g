@@ -1,4 +1,4 @@
-package dk.form.servlet;
+package dk.ID.data;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,12 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dk.form.data.Users;
-
 /**
- * Servlet implementation class Form
+ * Servlet implementation class CreatePerson
  */
-@WebServlet("/Form")
+@WebServlet("/form")
 public class Form extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,53 +29,52 @@ public class Form extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users u = new Users();
-		u.setName("");
-		u.setEmail("");
-		u.setAge("");
-		
-		request.setAttribute("inputUsers", u);
-		request.getRequestDispatcher("form.jsp").forward(request,response);
+		//Person emailPerson = new Person();
+		//request.setAttribute("EmailPersons", emailPerson);
+		request.getRequestDispatcher("Form.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users u = new Users();
-		u.setName(request.getParameter("name"));
-		u.setEmail(request.getParameter("email"));
-		u.setAge(request.getParameter("age"));
 		
-		request.setAttribute("inputUsers", u);
-		
-		HttpSession ses = request.getSession(true);
-		
-		@SuppressWarnings("unchecked")
-		ArrayList<Users> oldlist = (ArrayList<Users>)ses.getAttribute("userlist");
-		ArrayList<Users> list = null;
-		
-		if (oldlist == null){
-			list = new ArrayList<Users>();
-		} else {
-			list = oldlist;
-		}
-
-		int maxId = 0;
-		for (Users listUser: list) { 
-			int userId = listUser.getId();
-			if (maxId<userId) {
-				maxId = userId;
-			}
-		}
-		
-		u.setId(maxId+1); 
-
-		list.add(u);
+		Person emailPerson = new Person();
 				
-		ses.setAttribute("userlist", list);
-		response.sendRedirect("Output");
-			
-		} 
+		emailPerson.setEmail(request.getParameter("name"));
+		emailPerson.setName(request.getParameter("email"));
+		emailPerson.setAge(request.getParameter("age"));
+		
+		//request.setAttribute("EmailPersons", emailPerson);
+		
+		HttpSession session = request.getSession(true);
+		
+		ArrayList<Person> oldList = (ArrayList<Person>) session.getAttribute("NewEmailpersons");
+		ArrayList<Person> list = null;
+		
+		if (oldList == null) {
 
+			list = new ArrayList<Person>();
+		} else {
+
+		list = oldList;
+		}
+		
+		int maxId = 0;
+		for(Person listPerson: list){
+			int  personId = listPerson.getId();
+			if(maxId<personId){
+				maxId = personId;
+			}
+			
+		}
+		emailPerson.setId(maxId+1);
+		
+		list.add(emailPerson);
+		session.setAttribute("NewEmailpersons", list);	
+		
+		response.sendRedirect("info");
+		
 	}
+
+}

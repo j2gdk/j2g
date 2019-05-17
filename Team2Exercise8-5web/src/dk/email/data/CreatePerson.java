@@ -29,6 +29,8 @@ public class CreatePerson extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Person emailPerson = new Person();
+		//request.setAttribute("EmailPersons", emailPerson);
 		request.getRequestDispatcher("CreateForm.jsp").forward(request, response);
 	}
 
@@ -36,17 +38,21 @@ public class CreatePerson extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		Person emailPerson = new Person();
 				
 		emailPerson.setEmail(request.getParameter("name"));
 		emailPerson.setName(request.getParameter("email"));
 		emailPerson.setAge(request.getParameter("age"));
 		
-		request.setAttribute("EmailPersons", emailPerson);
+		int id = System.identityHashCode(emailPerson);
+		emailPerson.setId(id);
+		
+		//request.setAttribute("EmailPersons", emailPerson);
 		
 		HttpSession session = request.getSession(true);
 		
-		ArrayList<Person> oldList = (ArrayList<Person>) session.getAttribute("EmailPersons");
+		ArrayList<Person> oldList = (ArrayList<Person>) session.getAttribute("NewEmailpersons");
 		ArrayList<Person> list = null;
 		
 		if (oldList == null) {
