@@ -57,8 +57,6 @@ public class Delete extends HttpServlet {
 			}
 			counter = counter + 1;
 		}
-		
-
 		list.remove(indexToDelete);
 				
 		ses.setAttribute("userlist", list);
