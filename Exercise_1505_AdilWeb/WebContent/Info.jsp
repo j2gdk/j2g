@@ -39,12 +39,19 @@
 <tr class="tr2">
 	
 		<th> <%=a.getId() %><th>
-		<th> <%=a.getEmail()%></th>
+		
+															<!-- getEmail er getName, skal løses -->
+		<th> <a href=/Exercise_1505_AdilWeb/UpdateForm.jsp> <%=a.getEmail()%> </a></th> 
+		
 		<th> <%=a.getAge()%></th>
-		<th> <%=a.getName()%></th>
+		
+		<th>  <%=a.getName()%> <th>
+		
 		<th><form action="delete" method="post">
+		
 		<input type="submit" name="delete" value="Delete">
 		<input type="hidden" name="Id" value="<%=a.getId() %>">
+		
 		</form></th>
 </tr>
 	<%}%>

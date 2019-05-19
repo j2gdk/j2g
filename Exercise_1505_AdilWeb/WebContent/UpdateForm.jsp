@@ -25,8 +25,10 @@ Age: <select id="dropdown" name="age">
   						<option value="50" >50</option>
 						</select><br><br>
 
-<input type="submit" name="submit" value="Create"/>
-
+	<input type="submit" name="submit" value="Create"/>
+<form action="update" method="post">
+	<input type="submit" name="update" value="Update"/>
+</form>
 </table>
 </form>
 </body>
