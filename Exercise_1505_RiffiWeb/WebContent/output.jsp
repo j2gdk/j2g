@@ -14,7 +14,7 @@
 </head>
 <body class="myBody">
 
-<h1 class="h1">Results for User!</h1>
+<h1 class="h1">List of Created Users</h1>
 
 
 
@@ -63,8 +63,9 @@
 <% 
  } 
 %> 
+<BR>
 
-        <form action="Output" method="post">
+        <form  class="previous" action="Output" method="post">
 		<input type="submit" name="Previous" value="Previous">
 		</form>
 

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dk.form.data.Users;
 
@@ -30,6 +31,7 @@ public class Update extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("form.jsp").forward(request,response);
 	}
 
 	/**
@@ -38,10 +40,21 @@ public class Update extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		//it will save the value of name in Name field
-				String name = request.getParameter("name");
-		        request.getSession().setAttribute("name", name);
-		        
+		Integer id = Integer.parseInt(request.getParameter("id"));
+
+
+		HttpSession ses = request.getSession(true);
+
+		@SuppressWarnings("unchecked")
+
+		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
+
+		list.remove(id);	
+		
+
+		request.getRequestDispatcher("output.jsp").forward(request,response);
+
+		
 		if (request.getParameter("Update") != null) {
 
 			response.sendRedirect("Output");
