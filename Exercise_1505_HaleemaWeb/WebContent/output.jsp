@@ -42,7 +42,7 @@
   
 <tr>
 		<th class="myTh2"> <%=u.getId()%></th>
-		<th class="myTh2"><a href="Update"> <%=u.getName() %></a></th>
+		<th class="myTh2"><a href="Form?id=<%=u.getId()%>"> <%=u.getName() %></a></th>
 		<th class="myTh2"> <%=u.getEmail()%></th>
 		<th class="myTh2"> <%=u.getAge()%></th>
 		<th>

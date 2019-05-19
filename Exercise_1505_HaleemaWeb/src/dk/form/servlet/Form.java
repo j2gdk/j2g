@@ -31,12 +31,29 @@ public class Form extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users u = new Users();
-		u.setName("");
-		u.setEmail("");
-		u.setAge("");
+		String idStr = request.getParameter("id");
+		if (idStr == null) {
+			// opret - lav tom bruger
+			Users u = new Users();
+			u.setName("");
+			u.setEmail("");
+			u.setAge("");
 		
-		request.setAttribute("inputUsers", u);
+			request.setAttribute("inputUsers", u);
+		} else {
+			// ret - find rette bruger
+			Integer id = Integer.parseInt(idStr);
+			
+			Users u = null;
+			ArrayList<Users> list = (ArrayList<Users>)request.getSession().getAttribute("userlist");
+			for (Users user : list) {
+				if (user.getId() == id) {
+					u = user;
+				}
+			}
+			
+			request.setAttribute("inputUsers", u);
+		}
 		request.getRequestDispatcher("form.jsp").forward(request,response);
 	}
 
@@ -48,6 +65,7 @@ public class Form extends HttpServlet {
 		u.setName(request.getParameter("name"));
 		u.setEmail(request.getParameter("email"));
 		u.setAge(request.getParameter("age"));
+	
 		
 		request.setAttribute("inputUsers", u);
 		
@@ -62,20 +80,21 @@ public class Form extends HttpServlet {
 		} else {
 			list = oldlist;
 		}
-
+		
+		//It will loop the arraylist and will keep increasing the ID. 
 		int maxId = 0;
-		for (Users listUser: list) { 
+		for (Users listUser: list){
 			int userId = listUser.getId();
-			if (maxId<userId) {
+			
+			if(maxId<userId){
 				maxId = userId;
 			}
 		}
-		
-		u.setId(maxId+1); 
+			u.setId(maxId+1);
 
 		list.add(u);
-				
 		ses.setAttribute("userlist", list);
+		
 		response.sendRedirect("Output");
 			
 		} 
