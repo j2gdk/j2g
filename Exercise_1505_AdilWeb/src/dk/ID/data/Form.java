@@ -40,6 +40,7 @@ public class Form extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Person emailPerson = new Person();
+		Validator valid = new Validator();
 				
 		emailPerson.setEmail(request.getParameter("name"));
 		emailPerson.setName(request.getParameter("email"));
@@ -47,6 +48,11 @@ public class Form extends HttpServlet {
 		
 		//request.setAttribute("EmailPersons", emailPerson);
 		
+		boolean nameValid = valid.isNameValid(emailPerson.getName());
+		boolean emailValid = valid.isEmailValid(emailPerson.getEmail());
+		boolean ageValid = valid.isAgeValid(emailPerson.getAge());
+		
+		if(nameValid && emailValid && ageValid){
 		HttpSession session = request.getSession(true);
 		
 		ArrayList<Person> oldList = (ArrayList<Person>) session.getAttribute("NewEmailpersons");
@@ -74,6 +80,8 @@ public class Form extends HttpServlet {
 		session.setAttribute("NewEmailpersons", list);	
 		
 		response.sendRedirect("info");
+		
+		} else{response.sendRedirect("form");}
 		
 	}
 

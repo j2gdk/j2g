@@ -1,4 +1,4 @@
-package dk.ID.data;
+package dk.exercise_1505_AfzalWeb.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Delete
  */
-@WebServlet("/delete")
+@WebServlet("/Delete")
 public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,35 +29,42 @@ public class Delete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+		response.sendRedirect("outprint");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session = request.getSession(true);
-		ArrayList<Person> list = (ArrayList<Person>)session.getAttribute("NewEmailpersons");
-		
-		int id = Integer.parseInt(request.getParameter("Id"));
+	
+		HttpSession ses = request.getSession(); 
+		ArrayList<Student> list = (ArrayList<Student>) ses.getAttribute("studentlist"); 
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		int counter = 0;
 		int indexToDelete = 0;
-		
-			for(Person listPerson: list){
-				int  personId = listPerson.getId();
-				
-				if(id == personId){
-					indexToDelete = counter;
-				}
-				counter = counter+1;
+		for (Student listUser: list) { 
+
+			int studentId = listUser.getId();
+
+			if (id == studentId) {
+
+				indexToDelete = counter;
+
 			}
-			
-			list.remove(indexToDelete);
-			session.setAttribute("NewEmailpersons", list);
-			response.sendRedirect("Info.jsp");
+
+			counter = counter + 1;
+
+		}
+
+		list.remove(indexToDelete);
+
+				
+
+		ses.setAttribute("studentlist", list);
+
+		response.sendRedirect("outprint.jsp");
+		
 	}
 
 }
