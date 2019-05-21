@@ -1,6 +1,7 @@
 package dk.email.data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +29,7 @@ public class Delete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.sendRedirect("Output");
 		
 	}
 
@@ -38,7 +39,8 @@ public class Delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession ses = request.getSession(true); 
 		
-		Student ArrayList = (Student) request.getAttribute("Userlist");
+		ArrayList<Student> list = (ArrayList<Student>) ses.getAttribute("Userlist");
+		
 		
 int id = Integer.parseInt(request.getParameter("id"));
 		
@@ -64,7 +66,7 @@ int id = Integer.parseInt(request.getParameter("id"));
 
 		ses.setAttribute("Userlist", list);
 
-		response.sendRedirect("outprint.jsp");
+		response.sendRedirect("Output2.jsp");
 		
 	}
 

@@ -41,10 +41,11 @@
 		<th> <%=s.getId() %><th>
 		<th> <%=s.getEmail()%></th>
 		<th> <%=s.getAge()%></th>
-		 <td><a href="Input"> <%=s.getName() %></a></td>
-		<th> <%=s.getName()%></th>
-		<th><form action="delete" method="post">
+		 <th><a href="Input"> <%=s.getName() %></a></th>
+		<th><form action="Delete" method="post">
+		
 		<input type="submit" name="delete" value="Delete">
+		<input type="hidden" name="id" value="<%=s.getId()%>" />
 		</form></th>
 </tr>
 	<%}%>

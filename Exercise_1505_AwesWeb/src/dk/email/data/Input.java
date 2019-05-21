@@ -43,11 +43,7 @@ public class Input extends HttpServlet {
 		request.setAttribute("Userlist", s);
 	
 	
-		
-		
 	}
-
-	
 
 
 	/**
