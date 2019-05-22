@@ -1,4 +1,4 @@
-package dk.form.servlet;
+package dk.email.data;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dk.form.data.Users;
 
 /**
  * Servlet implementation class Update
@@ -30,44 +28,47 @@ public class Update extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("form.jsp").forward(request,response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	request.getRequestDispatcher("Input1.jsp").forward(request,response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users updatedUser = new Users();
-		updatedUser.setName(request.getParameter("name"));
-		updatedUser.setEmail(request.getParameter("email"));
-		updatedUser.setAge(request.getParameter("age"));
-		updatedUser.setId(Integer.parseInt(request.getParameter("id")));
+		HttpSession ses = request.getSession(true); 
 		
-		HttpSession ses = request.getSession(true);
+		ArrayList<Student> list = (ArrayList<Student>) ses.getAttribute("Userlist");
 		
-		@SuppressWarnings("unchecked")
-		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
 		
-		int id = Integer.parseInt(request.getParameter("id"));
+int id = Integer.parseInt(request.getParameter("id"));
 		
 		int counter = 0;
-		int indexToUpdate = 0;
-		for (Users listUser: list) { 
-			int userId = listUser.getId();
-			if (id == userId) {
-				indexToUpdate = counter;
+		int indexToDelete = 0;
+		for (Student listUser: list) { 
+
+			int studentId = listUser.getId();
+
+			if (id == studentId) {
+
+				indexToDelete = counter;
+
 			}
+
 			counter = counter + 1;
+
 		}
-		list.remove(indexToUpdate);
-		list.add(indexToUpdate, updatedUser);
+
+		list.remove(indexToDelete);
+
+		
 				
-		ses.setAttribute("userlist", list);
-		response.sendRedirect("output.jsp");
-	
+
+		ses.setAttribute("Userlist", list);
+
+		response.sendRedirect("Output2.jsp");
+		
+	}
+
 }
-
-
-}
-

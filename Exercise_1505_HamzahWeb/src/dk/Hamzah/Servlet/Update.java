@@ -1,4 +1,4 @@
-package dk.form.servlet;
+package dk.Hamzah.Servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dk.form.data.Users;
 
 /**
  * Servlet implementation class Update
@@ -31,43 +29,37 @@ public class Update extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("form.jsp").forward(request,response);
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("Input.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users updatedUser = new Users();
-		updatedUser.setName(request.getParameter("name"));
-		updatedUser.setEmail(request.getParameter("email"));
-		updatedUser.setAge(request.getParameter("age"));
-		updatedUser.setId(Integer.parseInt(request.getParameter("id")));
-		
-		HttpSession ses = request.getSession(true);
-		
+		// TODO Auto-generated method stub
+		HttpSession ses = request.getSession(true); 
+
 		@SuppressWarnings("unchecked")
-		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
-		
-		int id = Integer.parseInt(request.getParameter("id"));
+		ArrayList<Student> list = (ArrayList<Student>) ses.getAttribute("studentlist"); 
+
+			
+		int id = Integer.parseInt (request.getParameter("Id"));
 		
 		int counter = 0;
 		int indexToUpdate = 0;
-		for (Users listUser: list) { 
-			int userId = listUser.getId();
-			if (id == userId) {
-				indexToUpdate = counter;
+		for (Student studentlist : list) { 
+			int studentId = studentlist.getId();
+			if (id == studentId) {
+				indexToUpdate = counter; 
 			}
-			counter = counter + 1;
-		}
-		list.remove(indexToUpdate);
-		list.add(indexToUpdate, updatedUser);
+			counter = counter + 1; 
 				
-		ses.setAttribute("userlist", list);
-		response.sendRedirect("output.jsp");
-	
-}
+		list.remove(indexToUpdate);
+	}
+		ses.setAttribute("studentlist", list); 
 
-
+		response.sendRedirect("outprint.jsp");
 }
+	}
 
