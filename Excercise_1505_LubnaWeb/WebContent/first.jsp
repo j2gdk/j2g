@@ -9,11 +9,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% Customer inputCustomer = (Customer) request.getAttribute("inputCustomer");%>
+	
+<%
 
+	Customer inputCustomer = (Customer) request.getAttribute("inputCustomer");
+
+	String action = "InputServlet";
+
+	if (inputCustomer.getId() != null) {
+
+		action = "Update";
+
+	}
+
+%>
 		<form method="post" action="InputServlet" class="input">
 			<% if (request.getAttribute("error_name")!=null) { %>	
 
+	<input type="hidden" name="id" value="<%=inputCustomer.getId() %>" />
+
+<%}%>
+<table>
+<tr>
 			<td><%=request.getAttribute("error_name") %></td>	
 	
 				<%} %><br>
@@ -21,7 +38,7 @@
 				Name: <input type="text" name="name" value="<%=inputCustomer.getName()%>"><br><br>
 
 				<%if (request.getAttribute("error_email")!=null){ %>
-
+</tr>
 			<td><%=request.getAttribute("error_email") %></td><br>
 				<%} %>
 
@@ -43,8 +60,20 @@
  					    			<option value="60">60</option>
 									</select>
 						</td><br>
-					</tr><br>		   
-		  							<input type="submit" name="submit" value="Create">
+					<tr>
+
+<%if (inputCustomer.getId() == null) {%>
+
+	<td><p><input class="submit" type="submit" name="submit" value="Create User"/></p></td>
+
+<%} else { %> 
+
+	<td><p><input class="submit" type="submit" name="submit" value="Update User"/></p></td>
+
+<%} %>
+
+</tr>
+</table>
 </form>
 </body>
 </html>
