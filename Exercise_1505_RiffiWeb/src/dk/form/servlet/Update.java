@@ -42,59 +42,31 @@ public class Update extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		newUpdatedPerson updated = new newUpdatedPerson();
+		Users updatedUser = new Users();
 		
-		updated.setName(request.getParameter("name"));
-		updated.setEmail(request.getParameter("email"));
-		updated.setAge(request.getParameter("age"));
+		updatedUser.setName(request.getParameter("name"));
+		updatedUser.setEmail(request.getParameter("email"));
+		updatedUser.setAge(request.getParameter("age"));
+		updatedUser.setId(Integer.parseInt(request.getParameter("id")));
 	
 		
-		request.setAttribute("indexToUpdate", updated);
-		
-		 HttpSession ses = request.getSession(true);
+		HttpSession ses = request.getSession(true);
+		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
 
-			@SuppressWarnings("unchecked")
-
-			ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
-
-			int id = Integer.parseInt(request.getParameter("Id"));
-
-			int counter = 0;
-
-			int indexToDelete = 0;
-
-			for (Users listUser: list) { 
-
-				int userId = listUser.getId();
-
-				if (id == userId) {
-
-					indexToDelete = counter;
-
-				}
-
-				counter = counter + 1;
-
+		int id = Integer.parseInt(request.getParameter("id"));
+		int counter = 0;
+		int indexToUpdate = 0;
+		for (Users listUser: list) { 
+			int userId = listUser.getId();
+			if (id == userId) {
+				indexToUpdate = counter;
 			}
-
-
-			list.remove(indexToDelete);
-			list.add(indexToUpdate, newUpdatedPerson);;
-
-			ses.setAttribute("userlist", list);
-
-			response.sendRedirect("output.jsp");
-
-		
-		if (request.getParameter("Update") != null) {
-
-			response.sendRedirect("Output");
-
-		} else {
-			response.sendRedirect("Form");
-
+			counter = counter + 1;
 		}
 
+		list.remove(indexToUpdate);
+		list.add(indexToUpdate, updatedUser);
+		ses.setAttribute("userlist", list);
+		response.sendRedirect("output.jsp");
 	}
-	}
-
+}
