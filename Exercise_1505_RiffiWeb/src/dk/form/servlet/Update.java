@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dk.form.data.Users;
+import dk.form.data.newUpdatedPerson;
+
 
 /**
  * Servlet implementation class Update
@@ -40,19 +42,48 @@ public class Update extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Integer id = Integer.parseInt(request.getParameter("id"));
-
-
-		HttpSession ses = request.getSession(true);
-
-		@SuppressWarnings("unchecked")
-
-		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
-
-		list.remove(id);	
+		newUpdatedPerson updated = new newUpdatedPerson();
 		
+		updated.setName(request.getParameter("name"));
+		updated.setEmail(request.getParameter("email"));
+		updated.setAge(request.getParameter("age"));
+	
+		
+		request.setAttribute("indexToUpdate", updated);
+		
+		 HttpSession ses = request.getSession(true);
 
-		request.getRequestDispatcher("output.jsp").forward(request,response);
+			@SuppressWarnings("unchecked")
+
+			ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
+
+			int id = Integer.parseInt(request.getParameter("Id"));
+
+			int counter = 0;
+
+			int indexToDelete = 0;
+
+			for (Users listUser: list) { 
+
+				int userId = listUser.getId();
+
+				if (id == userId) {
+
+					indexToDelete = counter;
+
+				}
+
+				counter = counter + 1;
+
+			}
+
+
+			list.remove(indexToDelete);
+			list.add(indexToUpdate, newUpdatedPerson);;
+
+			ses.setAttribute("userlist", list);
+
+			response.sendRedirect("output.jsp");
 
 		
 		if (request.getParameter("Update") != null) {

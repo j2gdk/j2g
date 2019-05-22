@@ -1,6 +1,5 @@
 <%@page import="dk.delete.data.Customer"%>
 <%@page import="java.util.ArrayList"%> 
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="secondservlet" method="post">
+
 
 <table width= "80%" border="1px" align="center">
 
@@ -27,10 +26,10 @@
    
 <tr>
     <th>ID</th>
-	<th>Firstname</th>
-	<th>Lastname</th>
-	<th>Gender</th>
-	<th>Option</th>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Age</th>
+	<th colspan="2">Options</th>
 	
 </tr>
 
@@ -40,11 +39,20 @@
   
 <tr>
 		<th> <%=g.getId() %></th>
-		<th> <%=g.getFirstname() %></th>
-		<th> <%=g.getLastname()%></th>
-		<th> <%=g.getGender()%></th>
-		<th><input type="submit" name="delete" value="Delete"></th>
-
+		<th> <%=g.getName() %></th>
+		<th> <%=g.getEmail()%></th>
+		<th> <%=g.getAge()%></th>
+		
+<form action="UpdateServlet" method="post">
+		<th><input type="submit" name="update" value="Update">
+		<input type="Hidden" name="id" value="<%=g.getId() %>"></th>
+</form>		
+		
+<form action="DeleteServlet" method="post">
+		<th><input type="submit" name="delete" value="Delete">
+		<input type="Hidden" name="id" value="<%=g.getId() %>"></th>
+</form>
+			
 </tr>
 	<%}%>
 </table>
@@ -52,6 +60,8 @@
 <% 
  } 
 %> 
+<form action="InputServlet" method="get">
+		<input type="submit" name="Add New Member" value="Add New Member">
 </form>
 </body>
 </html>
