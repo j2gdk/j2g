@@ -1,4 +1,4 @@
-package shop;
+package dk.shop;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class start
  */
-@WebServlet("/start")
+@WebServlet("/shop/start")
 public class start extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -1,4 +1,4 @@
-package shop;
+package dk.shop;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class product
+ * Servlet implementation class basket
  */
-@WebServlet("/product")
-public class product extends HttpServlet {
+@WebServlet("/shop/basket")
+public class basket extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public product() {
+    public basket() {
         super();
         // TODO Auto-generated constructor stub
     }
