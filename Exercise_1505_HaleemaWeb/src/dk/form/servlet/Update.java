@@ -38,15 +38,32 @@ public class Update extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	Integer id = Integer.parseInt(request.getParameter("id"));
-	
-	HttpSession ses = request.getSession(true);
-	
-	@SuppressWarnings("unchecked")
-	ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
-
-	list.remove(id);	
-	request.getRequestDispatcher("output.jsp").forward(request,response);
+		Users u = new Users();
+		u.setName(request.getParameter("name"));
+		u.setEmail(request.getParameter("email"));
+		u.setAge(request.getParameter("age"));
+		
+		HttpSession ses = request.getSession(true);
+		
+		@SuppressWarnings("unchecked")
+		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
+		
+		int id = Integer.parseInt(request.getParameter("Id"));
+		
+		int counter = 0;
+		int indexToDelete = 0;
+		for (Users listUser: list) { 
+			int userId = listUser.getId();
+			if (id == userId) {
+				indexToDelete = counter;
+			}
+			counter = counter + 1;
+		}
+		list.remove(indexToDelete);
+		list.add(indexToUpdate, newUpdatedPerson)
+				
+		ses.setAttribute("userlist", list);
+		response.sendRedirect("output.jsp");
 	
 	if (request.getParameter("Update") != null) {
 		response.sendRedirect("Output");
