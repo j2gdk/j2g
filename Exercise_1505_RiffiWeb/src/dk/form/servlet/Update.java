@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dk.form.data.Users;
-import dk.form.data.newUpdatedPerson;
 
 
 /**
