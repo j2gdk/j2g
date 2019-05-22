@@ -31,7 +31,7 @@
   <tr>
    <td><%=s.getId() %></td>
    <td><%=s.getEmail() %></td> 
-   <td><a href="Input"> <%=s.getName() %></a></td>
+   <td><a href="Update"> <%=s.getName() %></a></td>
    <td><%=s.getAge() %></td>
    <td><form action="Delete" method="post">
         <input type="submit" name="delete_Id" value="Delete" />
