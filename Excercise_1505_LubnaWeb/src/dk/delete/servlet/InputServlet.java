@@ -12,10 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import dk.delete.data.Customer;
 
-
-/**
- * Servlet implementation class InputServlet
- */
 @WebServlet("/InputServlet")
 public class InputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
