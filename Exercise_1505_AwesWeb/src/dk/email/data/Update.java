@@ -37,7 +37,15 @@ public class Update extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession ses = request.getSession(true); 
+		
+		Student updateds = new Student ();
+				
+		HttpSession ses = request.getSession(true);
+		
+		updateds.setName(request.getParameter("name"));
+		updateds.setEmail(request.getParameter("email"));
+		updateds.setAge(request.getParameter("age"));
+		updateds.setId(Integer.parseInt(request.getParameter("id")));
 		
 		ArrayList<Student> list = (ArrayList<Student>) ses.getAttribute("Userlist");
 		
@@ -60,14 +68,13 @@ int id = Integer.parseInt(request.getParameter("id"));
 
 		}
 
+		list.remove(indexToUpdate);
 		list.remove(indexToDelete);
-
-		
-				
 
 		ses.setAttribute("Userlist", list);
 
 		response.sendRedirect("Output2.jsp");
+		
 		
 	}
 

@@ -32,6 +32,11 @@ Age: <select id="dropdown" name="age">
 	<td><input type="submit" name="submit" value="Update"/></td>
 
 
+<%if (s.getId() == null) {%>
+	<td><p class="myP"><input type="submit" name="submit" value=""/></p></td>
+<%} else { %> 
+	<td><p class="myP"><input type="submit" name="Update" value="Update"></p></td>
+<%} %>
 </form>
 </table>
 </body>
