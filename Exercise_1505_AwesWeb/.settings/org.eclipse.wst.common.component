@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="DeleteOption">
+    <wb-module deploy-name="Exercise_1505_AwesWeb">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="DeleteOption"/>
-        <property name="java-output-path" value="/DeleteOption/build/classes"/>
+        <property name="context-root" value="Exercise_1505_AwesWeb"/>
+        <property name="java-output-path" value="/Exercise_1505_AwesWeb/build/classes"/>
     </wb-module>
 </project-modules>
