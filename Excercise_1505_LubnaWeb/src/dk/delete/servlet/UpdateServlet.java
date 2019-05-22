@@ -27,10 +27,23 @@ public class UpdateServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
+		Customer updatedCustomer = new Customer();
+
 		
+
+		updatedCustomer.setName(request.getParameter("name"));
+
+		updatedCustomer.setEmail(request.getParameter("email"));
+
+		updatedCustomer.setAge(request.getParameter("age"));
+
+		updatedCustomer.setId(Integer.parseInt(request.getParameter("id")));
+
+		
+
 		HttpSession ses = request.getSession(true);
-		@SuppressWarnings("unchecked")
 		ArrayList<Customer> list = (ArrayList<Customer>)ses.getAttribute("customerlist");
 				
 		int id= Integer.parseInt(request.getParameter("id"));
@@ -44,16 +57,38 @@ public class UpdateServlet extends HttpServlet {
 			counter = counter+1;
 		}
 		list.remove(indexToUpdate);
-		request.setAttribute("inputCustomer", "g");
-	
-		
-		
-		response.sendRedirect("InputServlet"); 
-	  
-	  }
+
+		list.add(indexToUpdate, updatedCustomer);
+
+
+
+		ses.setAttribute("userlist", list);
+
+
+
+		response.sendRedirect("second.jsp");
+
+
 
 	
-	
+
+	if (request.getParameter("Update") != null) {
+
+
+
+		response.sendRedirect("DisplayServlet");
+
+
+
+	} else {
+
+		response.sendRedirect("InputServlet");
+
+
+
+	}
+
+
+
 }
-
-
+}
