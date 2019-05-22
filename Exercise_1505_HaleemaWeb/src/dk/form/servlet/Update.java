@@ -38,40 +38,34 @@ public class Update extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users u = new Users();
-		u.setName(request.getParameter("name"));
-		u.setEmail(request.getParameter("email"));
-		u.setAge(request.getParameter("age"));
+		Users updatedUser = new Users();
+		updatedUser.setName(request.getParameter("name"));
+		updatedUser.setEmail(request.getParameter("email"));
+		updatedUser.setAge(request.getParameter("age"));
+		updatedUser.setId(Integer.parseInt(request.getParameter("id")));
 		
 		HttpSession ses = request.getSession(true);
 		
 		@SuppressWarnings("unchecked")
 		ArrayList<Users> list = (ArrayList<Users>)ses.getAttribute("userlist");
 		
-		int id = Integer.parseInt(request.getParameter("Id"));
+		int id = Integer.parseInt(request.getParameter("id"));
 		
 		int counter = 0;
-		int indexToDelete = 0;
+		int indexToUpdate = 0;
 		for (Users listUser: list) { 
 			int userId = listUser.getId();
 			if (id == userId) {
-				indexToDelete = counter;
+				indexToUpdate = counter;
 			}
 			counter = counter + 1;
 		}
-		list.remove(indexToDelete);
-		list.add(indexToUpdate, newUpdatedPerson)
+		list.remove(indexToUpdate);
+		list.add(indexToUpdate, updatedUser);
 				
 		ses.setAttribute("userlist", list);
 		response.sendRedirect("output.jsp");
 	
-	if (request.getParameter("Update") != null) {
-		response.sendRedirect("Output");
-
-	} else {
-
-		response.sendRedirect("Form");
-	}
 }
 
 
