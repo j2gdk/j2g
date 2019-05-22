@@ -39,9 +39,9 @@
 <tr class="tr2">
 	
 		<th> <%=s.getId() %><th>
-		<th> <%=s.getEmail()%></th>
-		<th> <%=s.getAge()%></th>
 		<th><a href="Input"> <%=s.getName() %></a></th>
+		<th> <%=s.getAge()%></th>
+		<th> <%=s.getEmail()%></th>
 		<th><form action="Delete" method="post">
 		
 		<input type="submit" name="delete_Id" value="Delete">
