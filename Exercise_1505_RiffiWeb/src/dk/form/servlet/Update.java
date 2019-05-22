@@ -42,14 +42,13 @@ public class Update extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Users u = new Users();
-		u.setName(request.getParameter("name"));
-		u.setEmail(request.getParameter("email"));
-		u.setAge(request.getParameter("age"));
-	
 		newUpdatedPerson updated = new newUpdatedPerson();
 		
-		request.setAttribute("inputUsers", u);
+		updated.setName(request.getParameter("name"));
+		updated.setEmail(request.getParameter("email"));
+		updated.setAge(request.getParameter("age"));
+	
+		
 		request.setAttribute("indexToUpdate", updated);
 		
 		 HttpSession ses = request.getSession(true);
@@ -80,7 +79,7 @@ public class Update extends HttpServlet {
 
 
 			list.remove(indexToDelete);
-			list.add(indexToUpdate, newUpdatedPerson);
+			list.add(indexToUpdate, newUpdatedPerson);;
 
 			ses.setAttribute("userlist", list);
 
