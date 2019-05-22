@@ -7,16 +7,3 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="firstservlet" class="input">
-<br>
-Firstname: <input type="text" name="firstname" value=""><br>
-<br>
-Lastname:  <input type="text" name="lastname" value=""><br>
-<br>
-Gender:    <input type="radio" name="gender" value="Male">Male
-		   <input type="radio" name="gender" value="Female">Female
-<br>		   
-		  <input type="submit" name="submit" value="Create">
-</form>
-</body>
-</html>

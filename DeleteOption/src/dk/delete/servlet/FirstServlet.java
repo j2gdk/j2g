@@ -22,12 +22,12 @@ public class FirstServlet extends HttpServlet {
        
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*Customer g = new Customer();
+		Customer g = new Customer();
 		g.setFirstname("");
 		g.setLastname("");;
 		g.setGender("");;
 		
-		request.setAttribute("inputUsers", g);*/
+		request.setAttribute("inputUsers", g);
 		request.getRequestDispatcher("First.jsp").forward(request, response);
 	}
 
