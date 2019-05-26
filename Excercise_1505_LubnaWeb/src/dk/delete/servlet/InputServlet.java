@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dk.delete.data.Customer;
 
+
 @WebServlet("/InputServlet")
 public class InputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,14 +24,30 @@ public class InputServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Customer g = new Customer();
-		g.setName("");
-		g.setEmail("");;
-		g.setAge("");;
+			String idStr = request.getParameter("id");
+		if (idStr == null) {
+			// opret - lav tom bruger
+			Customer g = new Customer();
+			g.setName("");
+			g.setEmail("");;
+			g.setAge("");;
 		
-		request.setAttribute("inputCustomer", g);
-		request.getRequestDispatcher("first.jsp").forward(request, response);
-	
+			request.setAttribute("inputCustomer", g);
+		} else {
+			// ret - find rette bruger
+			Integer id = Integer.parseInt(idStr);
+			
+			Customer g = null;
+			ArrayList<Customer> list = (ArrayList<Customer>)request.getSession().getAttribute("customerlist");
+			for (Customer customer : list) {
+				if (customer.getId() == id) {
+					g = customer;
+				}
+			}
+			
+			request.setAttribute("inputCustomer", g);
+		}
+		request.getRequestDispatcher("first.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -63,10 +80,10 @@ public class InputServlet extends HttpServlet {
 				list = oldlist;
 			}
 			int maxId=0;
-			for (Customer listUser: list){
-				int userId = listUser.getId();
-				if(maxId<userId){
-					maxId=userId;
+			for (Customer listCustomer: list){
+				int customerId = listCustomer.getId();
+				if(maxId<customerId){
+					maxId=customerId;
 				}
 			}
 			g.setId(maxId+1);

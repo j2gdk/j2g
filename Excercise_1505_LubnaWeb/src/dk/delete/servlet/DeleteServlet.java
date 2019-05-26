@@ -44,9 +44,9 @@ public class DeleteServlet extends HttpServlet {
 		int id= Integer.parseInt(request.getParameter("id"));
 		int counter=0;
 		int indexToDelete = 0;
-		for (Customer listUser: list){
-		int userId = listUser.getId();
-			if(id==userId){
+		for (Customer listCustomer: list){
+		int customerId = listCustomer.getId();
+			if(id==customerId){
 				indexToDelete=counter;
 			}
 			counter = counter+1;

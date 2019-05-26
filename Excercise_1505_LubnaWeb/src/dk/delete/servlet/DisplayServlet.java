@@ -35,12 +35,15 @@ public class DisplayServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Customer g = new Customer();
-		g.setName("");
-		g.setEmail("");
-		g.setAge("");
-		request.setAttribute("inputCustomer", g);
-		request.getRequestDispatcher("second.jsp").forward(request, response);
+		if (request.getParameter("Previous") != null) {
+			response.sendRedirect("InputServlet");
+
+		} else {
+
+			response.sendRedirect("DisplayServlet");
+		}
+		
+		
 	}
 
 }

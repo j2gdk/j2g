@@ -23,7 +23,7 @@ public class UpdateServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.getRequestDispatcher("InputServlet.jsp").forward(request,response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,11 +34,8 @@ public class UpdateServlet extends HttpServlet {
 		
 
 		updatedCustomer.setName(request.getParameter("name"));
-
 		updatedCustomer.setEmail(request.getParameter("email"));
-
 		updatedCustomer.setAge(request.getParameter("age"));
-
 		updatedCustomer.setId(Integer.parseInt(request.getParameter("id")));
 
 		
@@ -49,46 +46,18 @@ public class UpdateServlet extends HttpServlet {
 		int id= Integer.parseInt(request.getParameter("id"));
 		int counter=0;
 		int indexToUpdate = 0;
-		for (Customer listUser: list){
-		int userId = listUser.getId();
-			if(id==userId){
+		for (Customer listCustomer: list){
+		int customerId = listCustomer.getId();
+			if(id==customerId){
 				indexToUpdate=counter;
 			}
 			counter = counter+1;
 		}
 		list.remove(indexToUpdate);
-
 		list.add(indexToUpdate, updatedCustomer);
-
-
-
-		ses.setAttribute("userlist", list);
-
-
-
+		ses.setAttribute("customerlist", list);
 		response.sendRedirect("second.jsp");
 
 
-
-	
-
-	if (request.getParameter("Update") != null) {
-
-
-
-		response.sendRedirect("DisplayServlet");
-
-
-
-	} else {
-
-		response.sendRedirect("InputServlet");
-
-
-
-	}
-
-
-
-}
+		}
 }
