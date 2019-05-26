@@ -1,6 +1,7 @@
 package dk.shop;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,14 +27,38 @@ public class product extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	Integer id = Integer.parseInt(request.getParameter("id"));
+	
+	if (id==1){
+		request.setAttribute("price", new ProductData().product1Price);
+		request.setAttribute("name", new ProductData().product1Name);
+		request.setAttribute("description", new ProductData().product1Description);
+ 
+	} else if (id==2){
+		request.setAttribute("price", new ProductData().product2Price);
+		request.setAttribute("name", new ProductData().product2Name);
+		request.setAttribute("description", new ProductData().product2Description);
+		
+	} else if (id==3){
+		request.setAttribute("price", new ProductData().product3Price);
+		request.setAttribute("name", new ProductData().product3Name);
+		request.setAttribute("description", new ProductData().product3Description);
+	}
+		request.getRequestDispatcher("product.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		if (request.getParameter("previous") != null) {
+			response.sendRedirect("start");
+
+		} else {
+
+			response.sendRedirect("basket");
+		}
 	}
+	
 
 }

@@ -3,6 +3,7 @@ package dk.shop;
 public class ProductData {
 	public final String product1Name = "Lipstick";
 	public final String product1Description = "A creamy rich Lipstick formula with high colour payo..";
+	public final String productImage = "product1.jpg";
 	public final Integer product1Price = new Integer(100);
 	
 	public final String product2Name = "Foundation";
