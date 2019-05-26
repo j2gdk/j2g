@@ -82,24 +82,10 @@ footer {
   <p>We are giving free delivery until 30th May, so Hurry and order !!!!</p>
 </header>
 					
-<table align="center" width="100%">
+<table width="100%">
 <tr>
-	<td><img width="120px" height="120px" src="images/product1.jpg"></td>
-	<td><img width="120px" height="120px" src="images/product2.jpg"></td>
-	<td><img width="120px" height="120px" src="images/product3.jpg"></td>
-</tr>
-
-<tr>
-<td><b><%=request.getAttribute("name")%> </b></td>
-</tr>
-
-<tr>
-<td><%=request.getAttribute("description") %></td>
-</tr>
-
-<tr>
-<td><br> DKK <%=request.getAttribute("price") %> 
-<br><br><select name="antal">
+<td><b><img class="img" width="300px" height="300px" style="border:10px solid white" src="<%=request.getAttribute("image")%>" align="left"> </b><br><b><%=request.getAttribute("name")%> </b> <br><%=request.getAttribute("description") %><br><br> DKK <%=request.getAttribute("price") %> 
+<br><select name="antal">
 		<option value="1">1</option>	
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -110,14 +96,15 @@ footer {
 		<option value="8">8</option>
 		<option value="9">9</option>
 		<option value="10">10</option>
-		</select></td>
+		</select>
+
+	<br><br><br><br><br><br><form action="product" method="post">
+		<input type="submit" name="previous" value="PREVIOUS">
+		<input type="submit" name="add" value="ADD TO BASKET">
+	</form>
+</td>
 </tr>
 </table>
-
-<form action="product" method="post" align="center">
-<input type="submit" name="previous" value="PREVIOUS">
-<input type="submit" name="add" value="ADD TO BASKET">
-</form>
 
 </section>
 
