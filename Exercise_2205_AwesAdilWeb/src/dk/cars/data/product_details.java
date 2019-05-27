@@ -28,7 +28,7 @@ public class product_details extends HttpServlet {
 	 * @param id 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response, int id) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nextJSP = "/page2.jsp";
 		
 		
