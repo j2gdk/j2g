@@ -28,6 +28,18 @@ public class product extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer id = Integer.parseInt(request.getParameter("id"));
+		
+		if (id==1){
+			request.setAttribute("Name", new Mobile().mobile1);
+			request.setAttribute("Description", new Mobile().mobile1description);
+		}else if (id==2){
+			request.setAttribute("Name", new Mobile().mobile2);
+			request.setAttribute("Description", new Mobile().mobile2description);
+		}else if (id==3){
+			request.setAttribute("Name", new Mobile().mobile3);
+			request.setAttribute("Description", new Mobile().mobile3description);
+		}
 		request.getRequestDispatcher("product1.jsp").forward(request, response);
 	}
 
