@@ -1,26 +1,23 @@
-package dk.delete.servlet;
+package dk.shop;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dk.delete.data.Customer;
-
 /**
- * Servlet implementation class DisplayServlet
+ * Servlet implementation class payment
  */
-@WebServlet("/DisplayServlet")
-public class DisplayServlet extends HttpServlet {
+@WebServlet("/payment")
+public class payment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayServlet() {
+    public payment() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,21 +26,21 @@ public class DisplayServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("second.jsp").forward(request, response);
-		
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("payment.jsp").forward(request, response);
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("Previous") != null) {
-			response.sendRedirect("InputServlet");
+		if (request.getParameter("continue") != null) {
+			response.sendRedirect("start");
 
 		} else {
 
-			response.sendRedirect("DisplayServlet");
+			response.sendRedirect("payment");
 		}
-		
-		
 	}
 
 }

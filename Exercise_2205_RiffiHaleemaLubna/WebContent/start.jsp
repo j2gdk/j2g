@@ -1,12 +1,11 @@
 <%@page import="dk.shop.ProductData"%>
-<%@page import="dk.shop.product"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product</title>
+<title>Shop</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -71,7 +70,6 @@ footer {
     width: 100%;
     height: auto;
   }
-  
 }
 </style>
 </head>
@@ -81,35 +79,44 @@ footer {
   <h2><img align="middle" width="700px" height="140px" src="images/logo.jpg"></h2>
   <p>We are giving free delivery until 30th May, so Hurry and order !!!!</p>
 </header>
-					
-<table width="100%">
-<tr>
-<td><b><img class="img" width="300px" height="300px" style="border:10px solid white" src="<%=request.getAttribute("image")%>" align="left"> </b><br><b><%=request.getAttribute("name")%> </b> <br><%=request.getAttribute("description") %><br><br> DKK <%=request.getAttribute("price") %> 
-<br><select name="antal">
-		<option value="1">1</option>	
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		</select>
 
-	<br><br><br><br><br><br><form action="product" method="post">
-		<input type="submit" name="previous" value="PREVIOUS">
-		<input type="submit" name="add" value="ADD TO BASKET">
-	</form>
-</td>
+<section>
+  <nav>
+  <img width="300px" height="160px" src="images/makeup.jpg">
+    <ul>
+      <li><a href="#">Foundation</a></li>
+      <li><a href="#">Nail Polish</a></li>
+      <li><a href="#">Cream</a></li>
+      <li><a href="#">Perfume</a></li>
+      <li><a href="#">Eye Shadow</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>Bestsellers</h1>
+    <table align="center" width="100%">
+<tr>
+	<td><img width="120px" height="120px" src="images/product1.jpg">
+	<h1><a href="product?id=1"><%=new ProductData().product1Name %></a></h1>
+	<%=new ProductData().product1Description%>
+	<br>Price: <%=new ProductData().product1Price %> Kr</td>
+	
+	<td><img width="120px" height="120px" src="images/product2.jpg">
+	<h1><a href="product?id=2"><%=new ProductData().product2Name %></a></h1>
+	<%=new ProductData().product2Description %>
+	<br>Price: <%=new ProductData().product2Price %> Kr</td>
+	
+	<td><img width="120px" height="120px" src="images/product3.jpg">
+	<h1><a href="product?id=3"><%=new ProductData().product3Name %></a></h1>
+	<%=new ProductData().product3Description %>
+	<br>Price: <%=new ProductData().product3Price %> Kr</td>
+	
 </tr>
 </table>
-
 </section>
 
 <footer>
-  <p>We accept Visa <img width="50px" height="30px" src="images/business-debit-card.png"> , DK <img width="50px" height="30px" src="images/visa.jpg">and MobilePay.<img width="50px" height="30px" src="images/pay.jpg"></p>
+  <p>We accept Visa <img width="50px" height="30px" src="images/business-debit-card.png"> , DK <img width="50px" height="30px" src="images/visa.jpg">and MobilPay.<img width="50px" height="30px" src="images/pay.jpg"></p>
 </footer>
 
 

@@ -39,14 +39,11 @@
   
 <tr>
 		<th> <%=g.getId() %></th>
-		<th> <%=g.getName() %></th>
+		<th><a href="InputServlet?id=<%=g.getId()%>"> <%=g.getName() %></a></th>
 		<th> <%=g.getEmail()%></th>
 		<th> <%=g.getAge()%></th>
 		
-<form action="UpdateServlet" method="post">
-		<th><input type="submit" name="update" value="Update">
-		<input type="Hidden" name="id" value="<%=g.getId() %>"></th>
-</form>		
+	
 		
 <form action="DeleteServlet" method="post">
 		<th><input type="submit" name="delete" value="Delete">
@@ -60,6 +57,7 @@
 <% 
  } 
 %> 
+<br>
 <form action="InputServlet" method="get">
 		<input type="submit" name="Add New Member" value="Add New Member">
 </form>

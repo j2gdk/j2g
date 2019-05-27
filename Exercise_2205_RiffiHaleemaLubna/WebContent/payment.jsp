@@ -1,12 +1,10 @@
-<%@page import="dk.shop.ProductData"%>
-<%@page import="dk.shop.product"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Product</title>
+<title>Confirmed Order</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -71,45 +69,39 @@ footer {
     width: 100%;
     height: auto;
   }
-  
 }
 </style>
 </head>
 <body>
-
 <header>
   <h2><img align="middle" width="700px" height="140px" src="images/logo.jpg"></h2>
   <p>We are giving free delivery until 30th May, so Hurry and order !!!!</p>
 </header>
-					
-<table width="100%">
-<tr>
-<td><b><img class="img" width="300px" height="300px" style="border:10px solid white" src="<%=request.getAttribute("image")%>" align="left"> </b><br><b><%=request.getAttribute("name")%> </b> <br><%=request.getAttribute("description") %><br><br> DKK <%=request.getAttribute("price") %> 
-<br><select name="antal">
-		<option value="1">1</option>	
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		</select>
 
-	<br><br><br><br><br><br><form action="product" method="post">
-		<input type="submit" name="previous" value="PREVIOUS">
-		<input type="submit" name="add" value="ADD TO BASKET">
-	</form>
-</td>
-</tr>
-</table>
-
+<section>
+  <nav>
+  <img width="300px" height="160px" src="images/makeup.jpg">
+    <ul>
+      <li><a href="#">Foundation</a></li>
+      <li><a href="#">Nail Polish</a></li>
+      <li><a href="#">Cream</a></li>
+      <li><a href="#">Perfume</a></li>
+      <li><a href="#">Eye Shadow</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>Order Confirmed</h1>
+    <br>
+    We have received your order. <br>
+    <br>
+    Shortly you will receive a confirmation mail with delivery details. <br>
+    <br>
+    Thank you for shopping with us.
 </section>
 
 <footer>
-  <p>We accept Visa <img width="50px" height="30px" src="images/business-debit-card.png"> , DK <img width="50px" height="30px" src="images/visa.jpg">and MobilePay.<img width="50px" height="30px" src="images/pay.jpg"></p>
+  <p>We accept Visa <img width="50px" height="30px" src="images/business-debit-card.png"> , DK <img width="50px" height="30px" src="images/visa.jpg">and MobilPay.<img width="50px" height="30px" src="images/pay.jpg"></p>
 </footer>
 
 
