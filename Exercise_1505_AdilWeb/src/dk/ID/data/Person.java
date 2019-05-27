@@ -4,7 +4,7 @@ public class Person {
 	private String email = null;
 	private String name = null;
 	private String age = null;
-	private int id;
+	private Integer id = null;
 	
 	public int getId(){
 		return id;

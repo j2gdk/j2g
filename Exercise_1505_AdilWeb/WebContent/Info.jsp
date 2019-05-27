@@ -25,7 +25,7 @@
  	%> 
    
 <tr class="tr1">
-	<th>ID<th>
+	<th>ID</th>
 	<th>Name</th>
 	<th>Age</th>
 	<th>Email</th>
@@ -38,14 +38,13 @@
   
 <tr class="tr2">
 	
-		<th> <%=a.getId() %><th>
+		<th> <%=a.getId() %></th>
 		
-															<!-- getEmail er getName, skal løses -->
-		<th> <a href=/Exercise_1505_AdilWeb/UpdateForm.jsp> <%=a.getEmail()%> </a></th> 
+		<th> <a href="form?id=<%=a.getId()%>"> <%=a.getEmail()%> </a></th> 
 		
 		<th> <%=a.getAge()%></th>
 		
-		<th>  <%=a.getName()%> <th>
+		<th>  <%=a.getName()%> </th>
 		
 		<th><form action="delete" method="post">
 		
