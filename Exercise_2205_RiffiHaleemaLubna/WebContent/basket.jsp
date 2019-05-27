@@ -1,3 +1,4 @@
+<%@page import="dk.shop.BasketItem"%>
 <%@page import="dk.shop.ProductData"%>
 <%@page import="java.util.ArrayList"%> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -97,11 +98,8 @@ footer {
 
 <table align="center" width="100%" cellpadding="5" cellspacing="5" align="center">
 
-  <%
- ProductData inputProduct = (ProductData) request.getAttribute("inputProduct");
-%>
-		<%	HttpSession ses = request.getSession(); 
-		ArrayList<ProductData> list = (ArrayList<ProductData>) ses.getAttribute("productlist"); 
+ <%	
+ 	ArrayList<BasketItem> list = (ArrayList<BasketItem>) request.getAttribute("basketlist"); 
 	if (list != null) { 
  %>
 		<tr>
@@ -114,25 +112,15 @@ footer {
 			
 		</tr>
 		<% 
-  for (ProductData u: list) { 
+  for (BasketItem item: list) { 
   %>
 		 <tr>	
-   <td><%= u.getId() %></td>
-   <td><%= u.getProduct_name() %></td> 
-   <td><%= u.getProduct_description() %></td> 
-   <td><select id="dropdown" name="Qty">
-			 			 		<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									</select></td>
+   <td><%= item.getId() %></td>
+   <td><%= item.getName() %></td> 
+   <td><%= item.getDescription() %></td> 
+   <td><%= item.getQuantity()%></td>
    <td color="MediumSeaGreen">In Stock</td> 
-   <td><%= u.getProduct_price() %></td>
+      <td><%= item.getPrice()%></td> 
    	</tr>
 	<%}%>
 </table>
