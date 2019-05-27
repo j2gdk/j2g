@@ -13,16 +13,15 @@ public class Customer {
 	private String error_name = null;
 	private String error_email= null;
 	private String error_age = null;
-	
-	private int id;
-	
-	
-	public int getId() {
+	private Integer id = null;
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
-	}
+	}	
+	
 
 	public String getName() {
 		return name;

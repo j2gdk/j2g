@@ -13,7 +13,7 @@
 
 Name: <input type="text" name="name" value=""><br><br> 
 
-Email: <input type="email" name="email" value=""><br><br> 
+Email: <input type="text" name="email" value=""><br><br> 
 
 Age: <select id="dropdown" name="age">
 						<option value=""></option>
@@ -25,9 +25,18 @@ Age: <select id="dropdown" name="age">
   						<option value="40" >40</option>
 						</select><br><br>
 
-<input type="submit" name="submit" value="Create"/>
-<input type="reset">
+	<td><input type="submit" name="submit" value="Create"/></td>
+<br>
+	<td><input type="reset" value="Reset"/></td>
+<br> 
+	<td><input type="submit" name="submit" value="Update"/></td>
 
+
+<%if (s.getId() == null) {%>
+	<td><p class="myP"><input type="submit" name="submit" value=""/></p></td>
+<%} else { %> 
+	<td><p class="myP"><input type="submit" name="Update" value="Update"></p></td>
+<%} %>
 </form>
 </table>
 </body>

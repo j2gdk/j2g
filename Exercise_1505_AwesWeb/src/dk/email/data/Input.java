@@ -53,8 +53,8 @@ public class Input extends HttpServlet {
 		
 		Student s = new Student();
 				
-		s.setEmail(request.getParameter("name"));
-		s.setName(request.getParameter("email"));
+		s.setName(request.getParameter("name"));
+		s.setEmail(request.getParameter("email"));
 		s.setAge(request.getParameter("age"));
 		
 	
