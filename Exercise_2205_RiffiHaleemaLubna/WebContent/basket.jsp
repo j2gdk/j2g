@@ -1,58 +1,126 @@
 <%@page import="dk.shop.ProductData"%>
+<%@page import="java.util.ArrayList"%> 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-   }
-   
-li {
-  float: left;
-  }
-
-under{
-border-bottom: 3px solid black;
-background-color: #f06292;
-align: center;
+* {
+  box-sizing: border-box;
 }
 
-in{
-   color:MediumSeaGreen;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: black;
+  padding: 1px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 350px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 323px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
   }
-
+}
 </style>
-<title>Shop</title>
 </head>
+<body>
 
-<body bgcolor="#fce4ec">
-	
+<header>
+  <h2><img align="middle" width="700px" height="140px" src="images/logo.jpg"></h2>
+  <p>We are giving free delivery until 30th May, so Hurry and order !!!!</p>
+</header>
+
+<section>
+  <nav>
+  <img width="300px" height="160px" src="images/makeup.jpg">
+    <ul>
+      <li><a href="#">Foundation</a></li>
+      <li><a href="#">Nail Polish</a></li>
+      <li><a href="#">Cream</a></li>
+      <li><a href="#">Perfume</a></li>
+      <li><a href="#">Eye Shadow</a></li>
+    </ul>
+  </nav>
+  
+  <article>
 <h2><under>Shopping Basket</under></h2>
-<br style = "line-height:4;">
-<div>
-<table align="center" width="100%">
+<br>
+
+<table align="center" width="100%" cellpadding="5" cellspacing="5" align="center">
+
+  <%
+ ProductData inputProduct = (ProductData) request.getAttribute("inputProduct");
+%>
+		<%	HttpSession ses = request.getSession(); 
+		ArrayList<ProductData> list = (ArrayList<ProductData>) ses.getAttribute("productlist"); 
+	if (list != null) { 
+ %>
 		<tr>
 			<td><b>Items</b></td>
-			<td><b>Item Discription</b></td>
+			<td><b>Product Name</b></td>
+			<td><b>Description</b></td>
 			<td><b>Qty</b></td>
 			<td><b>Availability</b></td>
-			<td><b>Order Value</b></td>
+			<td><b>Price</b></td>
 			
 		</tr>
-		<tr>
-			<td><img width="100px" height="85px"  src="images/product1.jpg"><a href="product?id=1"><%=new ProductData().product1Name %></a></td>
-			<td>
-				<div> 
-					A creamy rich Lipstick formula with high colour payo..
-				</div>		
-			</td>
-			<td><select id="dropdown" name="Qty">
+		<% 
+  for (ProductData u: list) { 
+  %>
+		 <tr>	
+   <td><%= u.getId() %></td>
+   <td><%= u.getProduct_name() %></td> 
+   <td><%= u.getProduct_description() %></td> 
+   <td><select id="dropdown" name="Qty">
 			 			 		<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -63,88 +131,24 @@ in{
 									<option value="8">8</option>
 									<option value="9">9</option>
 									</select></td>
-			<td>
-				<in>	
-					In Stock
-				</in>	
-			</td>
-			<td>	
-				<%=new ProductData().product1Price %> Kr
-			</td>
-			<td>	
-				<input type="submit" name="Delete" value="Delete">
-			</td>	
-		</tr>
-		<tr>
-			<td><img width="100px" height="85px"  src="images/product2.jpg"><a href="product?id=2"><%=new ProductData().product2Name %></a></td>
-			<td>
-				<div> 
-					BAREPRO® Performance Wear Powder Foundation
-				</div>		
-			</td>
-			<td><select id="dropdown" name="Qty">
-			 			 		<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									</select></td>
-			<td>
-				<in>	
-					In Stock
-				</in>	
-			</td>
-			<td>	
-				<%=new ProductData().product2Price %> Kr
-			</td>
-			<td>	
-				<input type="submit" name="Delete" value="Delete">
-			</td>	
-		</tr>
-		<tr>
-			<td>
-				<img width="100px" height="85px" src="images/product3.jpg"><a href="product?id=3"><%=new ProductData().product3Name %></a>
-			</td>
-			<td>
-				Loot-y Call from BH Cosmetics and Coastal Scents! 
-			</td>
-			<td><select id="dropdown" name="Qty">
-			 			 		<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									</select>
-			</td>
-			<td>
-				<in>
-					In Stock
-				</in>	
-			</td>
-			<td>
-				<%=new ProductData().product3Price %> Kr
-			</td>
-			<td>
-				<input type="submit" name="Delete" value="Delete">
-			</td>	
-		</tr>
-				
+   <td color="MediumSeaGreen">In Stock</td> 
+   <td><%= u.getProduct_price() %></td>
+   	</tr>
+	<%}%>
+</table>
+ 
+<% 
+ } 
+%> 	
+<br>
 		
-</table><br style = "line-height:6;">
-	</div>
-		<ul>
 		     <form action="payment" method="post">
-  			<li><input type="submit" name="continue" value="Continue Shopping"></li>
-  			<li style="float:right"><input type="submit" name="checkout" value="Go To Checkout"></li>
+  			<input type="submit" name="continue" value="Continue Shopping"></li>
+  			<input type="submit" name="checkout" value="Go To Checkout"></li>
   			</form>
-		</ul>
+</section>	
+<footer>
+  <p>We accept Visa <img width="50px" height="30px" src="images/business-debit-card.png"> , DK <img width="50px" height="30px" src="images/visa.jpg">and MobilPay.<img width="50px" height="30px" src="images/pay.jpg"></p>
+</footer>
 </body>
 </html>
