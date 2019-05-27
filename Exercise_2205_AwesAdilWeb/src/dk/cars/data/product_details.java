@@ -29,6 +29,21 @@ public class product_details extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer id = Integer.parseInt(request.getParameter("id")); 
+		
+		
+		if (id==1) {
+			request.setAttribute("Name", new cars().car1); 
+			
+		} else if (id==2) {
+			request.setAttribute("Name", new cars().car2); 
+			
+		}	else if (id==3) {
+			request.setAttribute("Name", new cars().car3); 
+			
+		}
+		
+		
 		String nextJSP = "/page2.jsp";
 		
 		
@@ -43,7 +58,8 @@ public class product_details extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
+		response.sendRedirect("Basket");
 	}
 
 }
