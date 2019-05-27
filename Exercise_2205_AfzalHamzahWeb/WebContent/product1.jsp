@@ -7,8 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3><%=request.getAttribute("Name")%></h3><b></b><p><%=request.getAttribute("Description")%></p>
+<h3><%=request.getAttribute("Name")%></h3>
+<b></b>
+<b></b><p><%=request.getAttribute("Description")%></p>
 
-<input id="amount" class="TextInputField" type="number" name="AMOUNT" minlength="1" size="3" maxlength="6" value="1">
+<input id="amount" class="TextInputField" type="number" name="AMOUNT" min="1" size="3" maxlength="6" value="1">
+<form action="product" method="post">
+		<input type="submit" name="add" value="Tilføj til kurv">
+</form>
 </body>
 </html>

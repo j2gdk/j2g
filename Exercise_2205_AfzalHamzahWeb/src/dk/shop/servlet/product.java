@@ -33,6 +33,7 @@ public class product extends HttpServlet {
 		if (id==1){
 			request.setAttribute("Name", new Mobile().mobile1);
 			request.setAttribute("Description", new Mobile().mobile1description);
+			
 		}else if (id==2){
 			request.setAttribute("Name", new Mobile().mobile2);
 			request.setAttribute("Description", new Mobile().mobile2description);
