@@ -40,7 +40,7 @@
 
 <div align="center">
 
-	<form action="" method="post">
+	<form action="redirectstartpage" method="post">
 	<input type="submit" name="startpage" value="Start page">
 	</form>
 	
