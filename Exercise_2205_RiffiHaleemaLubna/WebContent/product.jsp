@@ -81,11 +81,12 @@ footer {
   <h2><img align="middle" width="700px" height="140px" src="images/logo.jpg"></h2>
   <p>We are giving free delivery until 30th May, so Hurry and order !!!!</p>
 </header>
-					
+
+<form action="basket" method="post">					
 <table width="100%">
 <tr>
 <td><b><img class="img" width="300px" height="300px" style="border:10px solid white" src="<%=request.getAttribute("image")%>" align="left"> </b><br><b><%=request.getAttribute("name")%> </b> <br><%=request.getAttribute("description") %><br><br> DKK <%=request.getAttribute("price") %> 
-<br><select name="antal">
+<br><select name="count" value="<%=request.getParameter("count")%>">
 		<option value="1">1</option>	
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -98,13 +99,14 @@ footer {
 		<option value="10">10</option>
 		</select>
 
-	<br><br><br><br><br><br><form action="product" method="post">
+	<br><br><br><br><br><br>
 		<input type="submit" name="previous" value="PREVIOUS">
 		<input type="submit" name="add" value="ADD TO BASKET">
-	</form>
+		<input type="Hidden" name="Id" value="<%=request.getParameter("id")%>">
 </td>
 </tr>
 </table>
+</form>
 
 </section>
 
