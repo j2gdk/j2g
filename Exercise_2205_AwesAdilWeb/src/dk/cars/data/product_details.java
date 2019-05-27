@@ -33,13 +33,27 @@ public class product_details extends HttpServlet {
 		
 		
 		if (id==1) {
-			request.setAttribute("Name", new cars().car1); 
+			cars audi = new cars();
+			audi.setName("Audi");
+			audi.setPrice(200);
+//			request.setAttribute("car", audi);
+			request.setAttribute("id", 1);
+			request.setAttribute("name", audi.getName());
+			request.setAttribute("price", audi.getPrice());
+//			new cars().setName("Audi"));
 			
 		} else if (id==2) {
-			request.setAttribute("Name", new cars().car2); 
+			cars audi = new cars();
+			audi.setName("Bentley");
+			audi.setPrice(400);
+//			request.setAttribute("car", audi);
+			request.setAttribute("id", 2);
+			request.setAttribute("name", audi.getName());
+			request.setAttribute("price", audi.getPrice());
+			request.setAttribute("car", new cars().getName()); 
 			
 		}	else if (id==3) {
-			request.setAttribute("Name", new cars().car3); 
+//			request.setAttribute("car", new cars().car3); 
 			
 		}
 		

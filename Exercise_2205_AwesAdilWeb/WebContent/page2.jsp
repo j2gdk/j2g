@@ -8,7 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><%=request.getAttribute("Name") %></h1>
+<form action="basket" method="post">	
+<h1><%=request.getAttribute("name") %></h1>
+<h1><%=request.getAttribute("price") %></h1>
+<input type="text" name="count">
+<input type="hidden" name="carid" value="<%=request.getAttribute("id") %>" >
+<input type="submit" name="add" value="ADD TO BASKET">
+</form>
+
 
 
 
