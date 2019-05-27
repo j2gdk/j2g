@@ -141,8 +141,10 @@ in{
 </table><br style = "line-height:6;">
 	</div>
 		<ul>
-  			<li><input type="submit" name="Continue Shopping" value="Continue Shopping"></li>
-  			<li style="float:right"><input type="submit" name="Go To Checkout" value="Go To Checkout"></li>
+		     <form action="payment" method="post">
+  			<li><input type="submit" name="continue" value="Continue Shopping"></li>
+  			<li style="float:right"><input type="submit" name="checkout" value="Go To Checkout"></li>
+  			</form>
 		</ul>
 </body>
 </html>
