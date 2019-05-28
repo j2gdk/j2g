@@ -118,7 +118,7 @@ footer {
    <td><%= item.getId() %></td>
    <td><%= item.getName() %></td> 
    <td><%= item.getDescription() %></td> 
-   <td><%= item.getQuantity()%></td>
+   <td><%= item.getQuantity()%>"></td>
    <td color="MediumSeaGreen">In Stock</td> 
       <td><%= item.getPrice()%></td> 
    	</tr>
