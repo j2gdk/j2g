@@ -8,6 +8,8 @@
 </head>
 <body>
 <table border="1" width="50%" align="center">
+<h1><%=request.getAttribute("carList") %></h1>
+
 	<tr>
 	<th>Item</th>
 	<th>Item description</th>
