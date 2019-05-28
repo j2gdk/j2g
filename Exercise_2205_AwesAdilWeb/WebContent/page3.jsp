@@ -33,7 +33,9 @@
 									<option value="10">10</option>
 									</select></td>
 	
-	<td><input type="submit" name="Delete" value="Delete"></td>
+	<td><form action="" method="post">
+	<input type="submit" name="Delete" value="Delete">
+	</form></td>
 </tr>
 
 </table><br>
