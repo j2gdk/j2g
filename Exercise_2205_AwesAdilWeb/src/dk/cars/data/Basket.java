@@ -40,7 +40,8 @@ public class Basket extends HttpServlet {
 		System.out.println(request.getParameter("count"));
 		System.out.println(request.getParameter("id"));
 		
-		ArrayList carsList = new ArrayList();
+		
+		ArrayList<cars> carsList = new ArrayList<cars>();
 		
 		Integer id = Integer.parseInt(request.getParameter("id")); 
 		
