@@ -4,7 +4,7 @@ public class cars {
 
 	private String name;
 	private int price;
-	private String detail;
+//	private String detail;
 	
 	public String getName() {
 		return name;
