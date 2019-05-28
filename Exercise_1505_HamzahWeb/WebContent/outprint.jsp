@@ -13,19 +13,24 @@
 <body>
 <h1>Ramadaan Kareem Broor</h1>
 
-	
+<table class="myTable">	
+ <%  
+ Student inputStudent = (Student) request.getAttribute("inputStudent");
+ %> 
+ 
  <% 
  HttpSession ses = request.getSession(true); 
  ArrayList<Student> list = (ArrayList<Student>) ses.getAttribute("studentlist");  
  
  if (list != null) { 
  %> 
-   <table class="myTable">
+
   <tr>
   	<td><b>Id</b></td>
    	<td><b>Email</b></td>
    	<td><b>Navn</b></td>
    	<td><b>Alder</b></td>
+   	<td><b>Delete</b></td>
    	
   </tr>
   <% 
@@ -34,7 +39,7 @@
   <tr> 
   <td><%= s.getId() %></td> 
    <td><%= s.getEmail() %></td> 
-   <td><a href="Input"><%= s.getName() %> </a></td>
+   <td><a href="Input?id=<%= s.getId() %>"><%=s.getName() %> </a></td>
    <td><%= s.getAge() %></td>
    <td>
     <form action="Delete" method="post">
@@ -42,10 +47,6 @@
         <input type="hidden" name="Id" value="<%=s.getId()%>" />
 	 </form>
 	 
-     <form action="Update" method="post">
-        <input type="submit" name="update_Id" value="Update" />
-        <input type="hidden" name="Id" value="<%=s.getId()%>" />
-    </form>
 </td>
   </tr> 
   <%  
@@ -55,7 +56,7 @@
 <% 
  } 
 %> 
-<form action="outprint" method="post">
+<form action="outprint" method="post"></form>
 <p class="myP"><input type="submit" name="previous" value="Previous"></p>
 </body>
 </html>

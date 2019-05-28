@@ -38,6 +38,13 @@ public class Update extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Student updatedStudent = new Student();
+		
+		updatedStudent.setName(request.getParameter("name"));
+		updatedStudent.setEmail(request.getParameter("email"));
+		updatedStudent.setAge(request.getParameter("age"));
+		updatedStudent.setId(Integer.parseInt(request.getParameter("id")));
+		
 		HttpSession ses = request.getSession(true); 
 
 		@SuppressWarnings("unchecked")
@@ -54,9 +61,9 @@ public class Update extends HttpServlet {
 				indexToUpdate = counter; 
 			}
 			counter = counter + 1; 
-				
+		}			
 		list.remove(indexToUpdate);
-	}
+		list.add(indexToUpdate, updatedStudent ); 
 		ses.setAttribute("studentlist", list); 
 
 		response.sendRedirect("outprint.jsp");

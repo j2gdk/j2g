@@ -31,7 +31,32 @@ public class Input extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String idStr = request.getParameter("id");
+		if (idStr == null) {
+
+			Student s = new Student();
+			s.setName("");
+			s.setEmail("");
+			s.setAge("");
+		
+			request.setAttribute("inputStudent", s);
+		} else {
+	
+			Integer id = Integer.parseInt(idStr);
+			
+			Student s = null;
+			@SuppressWarnings("unchecked")
+			ArrayList<Student> list = (ArrayList<Student>)request.getSession().getAttribute("studentlist");
+			for (Student student : list) {
+				if (student.getId() == id) {
+					s = student;
+				}
+			}
+			
+			request.setAttribute("inputStudent", s);
+	
 		request.getRequestDispatcher("input.jsp").forward(request, response);
+}
 	}
 
 	/**
@@ -48,7 +73,7 @@ public class Input extends HttpServlet {
 		s.setName(request.getParameter("name"));
 		s.setAge(request.getParameter("age"));
 		
-
+		request.setAttribute("inputStudent",s);
 		
 		HttpSession ses = request.getSession(); 
 
