@@ -136,12 +136,35 @@ public class basket extends HttpServlet {
 			}
 			list.remove(indexToDelete);
 			
-			request.setAttribute("basketlist", list);
 			ses.setAttribute("basketlist", list);
+			request.setAttribute("basketlist", list);
 			request.getRequestDispatcher("basket.jsp").forward(request,response);
 			
-	
+		} else if (action.equals("update")) {
+			HttpSession ses = request.getSession(true);
+			
+			@SuppressWarnings("unchecked")
+			ArrayList<BasketItem> list = (ArrayList<BasketItem>)ses.getAttribute("basketlist");
+			
+			int id = Integer.parseInt(request.getParameter("Id"));
+			int count = Integer.parseInt(request.getParameter("count"));
+			
+			BasketItem foundItem = null; 
+			
+			for (BasketItem existingitem : list){
+				if (existingitem.getId()== id){
+					foundItem = existingitem;
+				}
+			}
+			
+			foundItem.setQuantity(count);
+					
+			ses.setAttribute("basketlist", list);
+			request.setAttribute("basketlist", list);
+			request.getRequestDispatcher("basket.jsp").forward(request,response);
+		
+		}
+		
 	}
 	
 	}
-}
