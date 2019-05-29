@@ -122,8 +122,9 @@ footer {
    <td>In Stock</td> 
    <td><%= item.getPrice()%> DKK</td> 
    <td>	
-   	<form action=<%=request.getParameter("action") %> method="post">
-		<input type="submit" name="delete" value="Delete">
+   	<form action="basket" method="post">
+ 		<input type="submit" name="delete" value="Delete">
+		<input type="Hidden" name="action" value="delete">
 		<input type="Hidden" name="Id" value="<%=item.getId()%>">
 	</form>
    	</tr>
