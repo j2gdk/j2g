@@ -35,13 +35,16 @@
 	
 	<td><input type="submit" name="Delete" value="Delete"></td>
 </tr>
-
+<tr>
+	<td><input type="button" name="Update" value="Update"</td>
+</tr>
 </table><br>
 
 <div align="center">
 
 	<form action="redirectstartpage" method="post">
 	<input type="submit" name="startpage" value="Start page">
+
 	</form>
 	
 	<form action="confirmation" method="post">
@@ -49,8 +52,6 @@
 	</form>
 	
 </div>
-
-
 
 </body>
 </html>
