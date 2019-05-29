@@ -47,9 +47,9 @@ public class Delete extends HttpServlet {
 		int indexToDelete = 0;
 		
 			for(cars listCars: list){
-				int  personId = listCars.getId();
+				int  carId = listCars.getId();
 				
-				if(id == personId){
+				if(id == carId){
 					indexToDelete = counter;
 				}
 				counter = counter+1;
