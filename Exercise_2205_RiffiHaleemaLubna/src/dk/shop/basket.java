@@ -135,9 +135,10 @@ public class basket extends HttpServlet {
 				counter = counter + 1;
 			}
 			list.remove(indexToDelete);
-					
+			
+			request.setAttribute("basketlist", list);
 			ses.setAttribute("basketlist", list);
-			response.sendRedirect("basket.jsp");
+			request.getRequestDispatcher("basket.jsp").forward(request,response);
 			
 	
 	}
