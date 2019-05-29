@@ -42,7 +42,7 @@ public class Basket extends HttpServlet {
 		
 		ArrayList<cars> carsList = new ArrayList<cars>();
 		
-		Integer id = Integer.parseInt(request.getParameter("id")); 
+		Integer id = Integer.parseInt(request.getParameter("carid")); 
 		
 		if (id==1) {
 			cars audi = new cars();
@@ -70,7 +70,7 @@ public class Basket extends HttpServlet {
 		
 		HttpSession s=request.getSession();
 		s.setAttribute("carList",carsList);
-		
+		response.sendRedirect("page3.jsp");
 		
 	}
 

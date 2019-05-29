@@ -7,14 +7,21 @@
 <title>Page 3</title>
 </head>
 <body>
+
+<% ArrayList<BasketItem> carList = new ArrayList<BasketItem>();>%>
+
 <table border="1" width="50%" align="center">
 	<tr>
 	<th>Item</th>
 	<th>Item description</th>
 	<th>Quantity</th>
-	<th>Delete</th>
+	<th>Actions</th>
 </tr>
 
+		<% 
+  for (BasketItem item:  ) { 
+  %>
+ 
 
 <tr>
 	<td></td>
@@ -33,11 +40,13 @@
 									<option value="10">10</option>
 									</select></td>
 	
-	<td><input type="submit" name="Delete" value="Delete"></td>
+	<td>
+		<input type="submit" name="Delete" value="Delete">
+		<input type="button" name="Update" value="Update">
+	</td>
 </tr>
-<tr>
-	<td><input type="button" name="Update" value="Update"</td>
-</tr>
+<%} %>
+
 </table><br>
 
 <div align="center">
