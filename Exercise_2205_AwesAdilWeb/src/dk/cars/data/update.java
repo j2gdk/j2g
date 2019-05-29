@@ -60,10 +60,10 @@ public class update extends HttpServlet {
 		return super.clone();
 	}
 	
-	list.remove(indexToUpdate);
-	list.add(indexToUpdate, updatedcars);
-	ses.setAttribute("carList", carList);
-	response.sendRedirect("page3.jsp");
+	//list.remove(indexToUpdate);
+	// list.add(indexToUpdate, updatedcars);
+	// ses.setAttribute("carList", carList);
+	// response.sendRedirect("page3.jsp");
 		
 				
 	

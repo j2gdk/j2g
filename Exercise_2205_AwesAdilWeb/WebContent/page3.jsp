@@ -1,5 +1,8 @@
+<%@page import="dk.cars.data.cars"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,13 +21,20 @@
 	<th>Actions</th>
 </tr>
 
+<%
+HttpSession s=request.getSession();
+ArrayList<cars> carlist = (ArrayList<cars>) s.getAttribute("carList");
+
+%>
+
 		<% 
-  for (int i=0;i<10;i++) { 
+  for (int i=0;i<carlist.size();i++) { 
 	  System.out.println(i);
+	  cars c = carlist.get(i);
 	  %>	  
 	  <tr>
-		<td></td>
-		<td></td>
+		<td><%=c.getName() %></td>
+		<td><%=c.getPrice() %></td>
 		
 		<td><select id="dropdown" name="Quantity">
 				 			 		<option value="1">1</option>

@@ -40,7 +40,18 @@ public class Basket extends HttpServlet {
 		System.out.println(request.getParameter("count"));
 		System.out.println(request.getParameter("id"));
 		
-		ArrayList<cars> carsList = new ArrayList<cars>();
+		HttpSession s=request.getSession();
+		// s.setAttribute("carList",carsList);
+		ArrayList<cars> carsList = null;
+		
+		if(s.getAttribute("carList")!=null){ 
+			carsList = (ArrayList<cars>) s.getAttribute("carList"); 
+			//new ArrayList<cars>();
+		} else {
+			carsList = new ArrayList();
+		}
+			
+		
 		
 		Integer id = Integer.parseInt(request.getParameter("carid")); 
 		
@@ -68,10 +79,9 @@ public class Basket extends HttpServlet {
 			
 		}	
 		
-		HttpSession s=request.getSession();
-		s.setAttribute("carList",carsList);
-		response.sendRedirect("page3.jsp");
 		
+		response.sendRedirect("page3.jsp");
+		s.setAttribute("carList",carsList);
 	}
 
 }
