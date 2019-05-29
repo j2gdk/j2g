@@ -2,7 +2,6 @@ package dk.shop;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -61,45 +60,51 @@ public class basket extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int counter = 0;
-		int indexToDelete = 0;		
+		String action = request.getParameter("action");
+		if (action.equals("add")) {
+			
+		} else if (action.equals("update")) {
+			
+		} if (action.equals("delete")) {
+			
+		}
+		BasketItem item= new BasketItem();
+		item.setId(Integer.parseInt(request.getParameter("Id")));
+		item.setQuantity(Integer.parseInt(request.getParameter("count")));
 		
-		ProductData u = new ProductData();
-		u.setProduct_name(request.getParameter("name"));
-		u.setProduct_description(request.getParameter("description"));
-		u.setProduct_price(request.getParameter("price"));
-	
+		if (item.getId()==1){
+			item.setName(new ProductData().product1Name);	
+			item.setDescription(new ProductData().product1Description);
+			item.setPrice(new ProductData().product1Price);
+			
+		} else if (item.getId()==2){
+			item.setName(new ProductData().product2Name);	
+			item.setDescription(new ProductData().product2Description);
+			item.setPrice(new ProductData().product2Price);
+			
+		} else if (item.getId()==3){
+			item.setName(new ProductData().product3Name);	
+			item.setDescription(new ProductData().product3Description);
+			item.setPrice(new ProductData().product3Price);
+		}
 		
-		request.setAttribute("inputProduct", u);
 		
 		HttpSession ses = request.getSession(true);
 		
-		@SuppressWarnings("unchecked")
-		ArrayList<ProductData> oldlist = (ArrayList<ProductData>)ses.getAttribute("productlist");
-		ArrayList<ProductData> list = null;
+		ArrayList<BasketItem> list = (ArrayList<BasketItem>)ses.getAttribute("basketlist");
 		
-		if (oldlist == null){
-			list = new ArrayList<ProductData>();
-		} else {
-			list = oldlist;
-		}
+		if (list == null){
+			list = new ArrayList<BasketItem>();
+		} 
 		
-		//It will loop the arraylist and will keep increasing the ID. 
-		int maxId = 0;
-		for (ProductData listProduct: list){
-			int userId = listProduct.getId();
-			
-			if(maxId<userId){
-				maxId = userId;
-			}
-		}
-			u.setId(maxId+1);
-
-		list.add(u);
-		ses.setAttribute("productlist", list);
+		list.add(item);
+		ses.setAttribute("basketlist", list);
 		
-		response.sendRedirect("basket");
+		request.setAttribute("basketlist", list);
+		
+		request.getRequestDispatcher("basket.jsp").forward(request,response);
 			
 		} 
 
+	
 	}

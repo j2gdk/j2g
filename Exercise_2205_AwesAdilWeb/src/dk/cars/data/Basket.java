@@ -36,13 +36,13 @@ public class Basket extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		System.out.println(request.getParameter("count"));
 		System.out.println(request.getParameter("id"));
 		
-		ArrayList carsList = new ArrayList();
+		ArrayList<cars> carsList = new ArrayList<cars>();
 		
-		Integer id = Integer.parseInt(request.getParameter("id")); 
+		Integer id = Integer.parseInt(request.getParameter("carid")); 
 		
 		if (id==1) {
 			cars audi = new cars();
@@ -70,7 +70,7 @@ public class Basket extends HttpServlet {
 		
 		HttpSession s=request.getSession();
 		s.setAttribute("carList",carsList);
-		
+		response.sendRedirect("page3.jsp");
 		
 	}
 
