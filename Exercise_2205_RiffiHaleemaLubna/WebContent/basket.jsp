@@ -119,7 +119,7 @@ footer {
    <td><%= item.getName() %></td> 
    <td><%= item.getDescription() %></td> 
    <td><form action="basket" method="post">
-   <input type="text" name="count" value="<%=item.getQuantity()%>">
+   <input type="text" name="count" value="<%=item.getQuantity()%>" size="1">
    <input type="submit" name="update" value="Update">
    <input type="Hidden" name="action" value="update">
    <input type="Hidden" name="Id" value="<%=item.getId()%>">
