@@ -102,7 +102,7 @@ footer {
 	<br><br><br><br><br><br>
 		<input type="submit" name="previous" value="PREVIOUS">
 		<input type="submit" name="add" value="ADD TO BASKET">
-		<input type="Hidden" name="Id" value="<%=request.getParameter("id")%>">
+		<input type="Hidden" name="Id" value="<%=request.getParameter("id")%>">	
 </td>
 </tr>
 </table>

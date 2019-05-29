@@ -21,6 +21,7 @@
 
 <%
  Users inputUsers = (Users) request.getAttribute("inputUsers");
+		
 %>
 
 <% 

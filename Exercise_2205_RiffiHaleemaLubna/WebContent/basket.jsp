@@ -118,25 +118,36 @@ footer {
    <td><%= item.getId() %></td>
    <td><%= item.getName() %></td> 
    <td><%= item.getDescription() %></td> 
-   <td><%= item.getQuantity()%>"></td>
-   <td color="MediumSeaGreen">In Stock</td> 
-      <td><%= item.getPrice()%></td> 
+   <td><%= item.getQuantity()%></td>
+   <td>In Stock</td> 
+   <td><%= item.getPrice()%> DKK</td> 
+   <td>	
+   	<form action=<%=request.getParameter("action") %> method="post">
+		<input type="submit" name="delete" value="Delete">
+		<input type="Hidden" name="Id" value="<%=item.getId()%>">
+	</form>
    	</tr>
 	<%}%>
+	
+
+
 </table>
- 
+
 <% 
  } 
 %> 	
 <br>
-		
-		     <form action="payment" method="post">
-  			<input type="submit" name="continue" value="Continue Shopping"></li>
-  			<input type="submit" name="checkout" value="Go To Checkout"></li>
-  			</form>
-</section>	
+
+<form action="payment" method="post">
+  			<input type="submit" name="continue" value="Continue Shopping">
+  			<input type="submit" name="checkout" value="Go To Checkout">
+</form>
+
+</section>
+	
 <footer>
   <p>We accept Visa <img width="50px" height="30px" src="images/business-debit-card.png"> , DK <img width="50px" height="30px" src="images/visa.jpg">and MobilPay.<img width="50px" height="30px" src="images/pay.jpg"></p>
 </footer>
+
 </body>
 </html>

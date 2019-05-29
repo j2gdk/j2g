@@ -55,7 +55,6 @@ public class product extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
 		if (request.getParameter("previous") != null) {
 			response.sendRedirect("start");
 
