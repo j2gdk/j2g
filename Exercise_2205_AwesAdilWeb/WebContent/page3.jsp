@@ -36,7 +36,7 @@
 	<td><input type="submit" name="Delete" value="Delete"></td>
 </tr>
 <tr>
-	<td><input type="button" name="Update" value="Update"</td>
+	<td><input type="button" name="Update" value="Update"></td>
 </tr>
 </table><br>
 
