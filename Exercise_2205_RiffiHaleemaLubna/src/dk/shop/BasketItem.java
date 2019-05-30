@@ -1,12 +1,14 @@
 package dk.shop;
 
+import java.math.BigDecimal;
+
 public class BasketItem {
 
 		Integer id=null;
 		String name=null;
 		String description=null;
 		Integer quantity=null;
-		Integer price=null;
+		BigDecimal price=null;
 		/**
 		 * @return the id
 		 */
@@ -58,14 +60,14 @@ public class BasketItem {
 		/**
 		 * @return the price
 		 */
-		public Integer getPrice() {
+		public BigDecimal getPrice() {
 			return price;
 		}
 		/**
-		 * @param price the price to set
+		 * @param product1Price the price to set
 		 */
-		public void setPrice(Integer price) {
-			this.price = price;
+		public void setPrice(BigDecimal product1Price) {
+			this.price = product1Price;
 		}
 		
 		
