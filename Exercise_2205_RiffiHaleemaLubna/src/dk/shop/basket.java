@@ -1,6 +1,7 @@
 package dk.shop;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -26,7 +27,7 @@ public class basket extends HttpServlet {
 		ProductData u = new ProductData();
 		u.setProduct_name(request.getParameter("name"));
 		u.setProduct_description(request.getParameter("description"));
-		u.setProduct_price(request.getParameter("price"));
+		u.setProduct_price(request.getParameter("totalPrice"));
 	
 		request.setAttribute("inputProduct", u);
 		
@@ -69,21 +70,31 @@ public class basket extends HttpServlet {
 			BasketItem item= new BasketItem();
 			item.setId(Integer.parseInt(request.getParameter("Id")));
 			item.setQuantity(Integer.parseInt(request.getParameter("count")));
+
+			Validator validator = new Validator();
+			boolean isQuantityValid = validator.isQuantityValid(item.getQuantity());
+			if (!isQuantityValid) {
+				response.sendRedirect("product?id="+item.getId()+"&quantityerror=true");
+				return;
+			}
 			
 			if (item.getId()==1){
 				item.setName(new ProductData().product1Name);	
 				item.setDescription(new ProductData().product1Description);
-				item.setPrice(new ProductData().product1Price);
+				item.setTotalPrice(new ProductData().product1Price.multiply(new BigDecimal(item.getQuantity())));
+				item.setUnitPrice(new ProductData().product1Price);
 				
 			} else if (item.getId()==2){
 				item.setName(new ProductData().product2Name);	
 				item.setDescription(new ProductData().product2Description);
-				item.setPrice(new ProductData().product2Price);
+				item.setTotalPrice(new ProductData().product2Price.multiply(new BigDecimal(item.getQuantity())));
+				item.setUnitPrice(new ProductData().product2Price);
 				
 			} else if (item.getId()==3){
 				item.setName(new ProductData().product3Name);	
 				item.setDescription(new ProductData().product3Description);
-				item.setPrice(new ProductData().product3Price);
+				item.setTotalPrice(new ProductData().product3Price.multiply(new BigDecimal(item.getQuantity())));
+				item.setUnitPrice(new ProductData().product3Price);
 			}
 			
 			HttpSession ses = request.getSession(true);
@@ -106,6 +117,7 @@ public class basket extends HttpServlet {
 				list.add(item);				
 			} else {
 				foundItem.setQuantity(foundItem.getQuantity()+ item.getQuantity());
+				foundItem.setTotalPrice(foundItem.getUnitPrice().multiply(new BigDecimal(foundItem.getQuantity())));
 			}
 
 			ses.setAttribute("basketlist", list);
@@ -158,6 +170,7 @@ public class basket extends HttpServlet {
 			}
 			
 			foundItem.setQuantity(count);
+			foundItem.setTotalPrice(foundItem.getUnitPrice().multiply(new BigDecimal(foundItem.getQuantity())));
 					
 			ses.setAttribute("basketlist", list);
 			request.setAttribute("basketlist", list);

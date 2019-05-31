@@ -126,7 +126,7 @@ footer {
    <input type="Hidden" name="Id" value="<%=item.getId()%>">
    </form></td>
    <td>In Stock</td> 
-   <td><%= item.getPrice()%> DKK</td> 
+   <td><%= item.getTotalPrice()%> DKK</td> 
    <td>	
    	<form action="basket" method="post">
  		<input type="submit" name="delete" value="Delete">

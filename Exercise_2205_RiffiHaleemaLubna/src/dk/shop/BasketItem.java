@@ -8,7 +8,8 @@ public class BasketItem {
 		String name=null;
 		String description=null;
 		Integer quantity=null;
-		BigDecimal price=null;
+		BigDecimal unitPrice=null;
+		BigDecimal totalPrice=null;
 		/**
 		 * @return the id
 		 */
@@ -58,17 +59,23 @@ public class BasketItem {
 			this.quantity = quantity;
 		}
 		/**
-		 * @return the price
+		 * @return the totalPrice
 		 */
-		public BigDecimal getPrice() {
-			return price;
+		public BigDecimal getTotalPrice() {
+			return totalPrice;
 		}
 		/**
-		 * @param product1Price the price to set
+		 * @param product1Price the totalPrice to set
 		 */
-		public void setPrice(BigDecimal product1Price) {
-			this.price = product1Price;
+		public void setTotalPrice(BigDecimal product1Price) {
+			this.totalPrice = product1Price;
 		}
 		
+		public BigDecimal getUnitPrice() {
+			return unitPrice;
+		}
+		public void setUnitPrice(BigDecimal unitPrice) {
+			this.unitPrice = unitPrice;
+		}
 		
 	}
