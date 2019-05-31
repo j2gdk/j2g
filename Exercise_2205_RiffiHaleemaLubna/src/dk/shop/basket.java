@@ -22,14 +22,12 @@ public class basket extends HttpServlet {
         super();
     }
         
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("basket.jsp").forward(request,response);
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		
+		HttpSession ses = request.getSession(true);
+		ArrayList<BasketItem> list = (ArrayList<BasketItem>)ses.getAttribute("basketlist");
+
 		if (action.equals("add")) {
 			BasketItem item= new BasketItem();
 			item.setId(Integer.parseInt(request.getParameter("Id")));
@@ -61,9 +59,6 @@ public class basket extends HttpServlet {
 				item.setUnitPrice(new ProductData().product3Price);
 			}
 			
-			HttpSession ses = request.getSession(true);
-			ArrayList<BasketItem> list = (ArrayList<BasketItem>)ses.getAttribute("basketlist");
-			
 			if (list == null){
 				list = new ArrayList<BasketItem>();
 			} 
@@ -84,17 +79,10 @@ public class basket extends HttpServlet {
 
 			ses.setAttribute("basketlist", list);
 			request.setAttribute("basketlist", list);
-			request.getRequestDispatcher("basket.jsp").forward(request,response);
-				 
-			
 		} else if (action.equals("delete")) {
 			BasketItem item= new BasketItem();
 			item.setId(Integer.parseInt(request.getParameter("Id")));
-					
-			HttpSession ses = request.getSession(true);
-			@SuppressWarnings("unchecked")
-			ArrayList<BasketItem> list = (ArrayList<BasketItem>)ses.getAttribute("basketlist");
-			
+
 			int id = Integer.parseInt(request.getParameter("Id"));
 			int counter = 0;
 			int indexToDelete = 0;
@@ -108,14 +96,7 @@ public class basket extends HttpServlet {
 			list.remove(indexToDelete);
 			ses.setAttribute("basketlist", list);
 			request.setAttribute("basketlist", list);
-			request.getRequestDispatcher("basket.jsp").forward(request,response);
-			
 		} else if (action.equals("update")) {
-			HttpSession ses = request.getSession(true);
-			
-			@SuppressWarnings("unchecked")
-			ArrayList<BasketItem> list = (ArrayList<BasketItem>)ses.getAttribute("basketlist");
-			
 			int id = Integer.parseInt(request.getParameter("Id"));
 			int count = Integer.parseInt(request.getParameter("count"));
 			
@@ -132,8 +113,16 @@ public class basket extends HttpServlet {
 					
 			ses.setAttribute("basketlist", list);
 			request.setAttribute("basketlist", list);
-			request.getRequestDispatcher("basket.jsp").forward(request,response);
-		
 		}
+	
+		// validate that items (regardless of add, update, delete) has not exceeded 10 items
+		Validator validator = new Validator();
+		for (BasketItem item : list){
+			if (!validator.isQuantityValid(item.getQuantity())) {
+				item.setInStock(false);
+			}
+		}
+		
+		request.getRequestDispatcher("basket.jsp").forward(request,response);
 	}
 }

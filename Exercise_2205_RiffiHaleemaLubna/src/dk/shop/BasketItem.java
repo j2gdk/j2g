@@ -10,6 +10,8 @@ public class BasketItem {
 		Integer quantity=null;
 		BigDecimal unitPrice=null;
 		BigDecimal totalPrice=null;
+		boolean inStock=true;
+		
 		/**
 		 * @return the id
 		 */
@@ -63,5 +65,10 @@ public class BasketItem {
 		public void setUnitPrice(BigDecimal unitPrice) {
 			this.unitPrice = unitPrice;
 		}
-		
+		public boolean isInStock() {
+			return inStock;
+		}
+		public void setInStock(boolean inStock) {
+			this.inStock = inStock;
+		}		
 	}

@@ -125,7 +125,13 @@ footer {
    <input type="Hidden" name="action" value="update">
    <input type="Hidden" name="Id" value="<%=item.getId()%>">
    </form></td>
-   <td>In Stock</td> 
+   <td>
+   <%if  (item.isInStock()) { %>
+   		In stock
+   <%} else { %>
+   		<span style="color:red">Not in stock</span>
+   <%}  %>
+   </td> 
    <td><%= item.getTotalPrice()%> DKK</td> 
    <td>	
    	<form action="basket" method="post">
