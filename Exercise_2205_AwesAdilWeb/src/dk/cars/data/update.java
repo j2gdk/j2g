@@ -45,12 +45,32 @@ public class update extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		cars s = new cars(); 
 		
-		s.setName(request.getParameter("name")); 
+		updatedcars.setName(request.getParameter("name")); 
 		
 		HttpSession ses = request.getSession(true);
+		
+		ArrayList<cars> carsList = (ArrayList<cars>)ses.getAttribute("carList"); 
+		
+		int id = Integer.parseInt(request.getParameter("carid"));
+		
+		int counter = 0; 
+		int indexToUpdate = 0; 
+		for (cars carList: carsList); 
+		
+		int carId = carList.getName(); 
+		if (id == carId) {
+			indexToUpdate = counter; 
 			
-				
+		}
+			counter = counter +1; 
+			
+	}
+		list.remove(indexToUpdate);
+		list.add(indexToUpdate, updatedcars); 
+		
+		ses.setAttribute("carList", carList);
+		response.sendRedirect("page3.jsp");
 	
 	}
 	
-}
+
