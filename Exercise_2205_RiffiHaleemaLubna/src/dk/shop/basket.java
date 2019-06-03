@@ -32,14 +32,18 @@ public class basket extends HttpServlet {
 			BasketItem item= new BasketItem();
 			item.setId(Integer.parseInt(request.getParameter("Id")));
 			item.setQuantity(Integer.parseInt(request.getParameter("count")));
-
+            
+			//to validate the quantity 
 			Validator validator = new Validator();
 			boolean isQuantityValid = validator.isQuantityValid(item.getQuantity());
+			//if the quantity is not valid, then it will display, error with the product id. 
 			if (!isQuantityValid) {
 				response.sendRedirect("product?id="+item.getId()+"&quantityerror=true");
 				return;
 			}
 			
+			//setTotalPrice = we will multiply the quantity with the product price to get Total Price
+			//setUnitPrice = it will display the original price of the product
 			if (item.getId()==1){
 				item.setName(new ProductData().product1Name);	
 				item.setDescription(new ProductData().product1Description);

@@ -8,6 +8,8 @@ public class BasketItem {
 		String name=null;
 		String description=null;
 		Integer quantity=null;
+		
+		//we defined unitPrice and TotalPrice with the error message "inStock" so we dont have to in servlet
 		BigDecimal unitPrice=null;
 		BigDecimal totalPrice=null;
 		boolean inStock=true;
