@@ -48,7 +48,7 @@ public class game extends HttpServlet {
 		
 		
 		s.setAttribute("gameList",game);
-		String nextJSP = "/game.jsp";
+		String nextJSP = "/tg.jsp";
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP); 
 		
 		dispatcher.forward(request,response);
@@ -94,10 +94,14 @@ public class game extends HttpServlet {
 			request.setAttribute("You lost the game");
 		}
 		
-		request.getRequestDispatcher("game.jsp").forward(request, response);
+		request.getRequestDispatcher("tg.jsp").forward(request, response);
 		
 		}
 		
+	
+		
+	}
+
 		private boolean isgameFull(ArrayList<Integer> board) {
 			for (Integer box : gameList) {
 				if (box == EMPTY) {
