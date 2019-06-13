@@ -19,6 +19,7 @@ public class game extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Integer EMPTY = null;
 	private static final String X = null;
+	private static final Integer String = null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -77,40 +78,50 @@ public class game extends HttpServlet {
 // https://www.tutorialspoint.com/java/java_break_statement.htm
 			
 			game.firstElement();
-			for ( s : game) {
-		         if (game == EMPTY) {
+			for ( String s : game) {
+		         if (s == EMPTY) {
 		            break;
 			
 		         }
 			}           
 		            
 		
-		if (XWon(gameList)) { 
+		if (XWon(game)) { 
 			request.setAttribute("You won the game", box); 
 			
-		} else if {
+		} else {
 			
-		(OWon(gameList)) { 
-			request.setAttribute("You lost the game");
+		(OWon(game)) { 
+			request.setAttribute("You lost the game", box);
 		}
+}
 		
 		request.getRequestDispatcher("tg.jsp").forward(request, response);
 		
 		}
-		
-	
-		
-	}
+}
 
-		private boolean isgameFull(ArrayList<Integer> board) {
-			for (Integer box : gameList) {
-				if (box == EMPTY) {
+		private boolean isgameFull(ArrayList<String> board) {
+			for (String box : game) {
+				if (String box == EMPTY) {
 					return false;
 				
-	}
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				}
 		
-				
+			}	
 		
-		
+	}	
 
 }
