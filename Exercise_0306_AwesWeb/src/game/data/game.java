@@ -61,7 +61,7 @@ public class game extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession s=request.getSession();
-		ArrayList<Integer> gameList = null;
+		ArrayList<String> game = null;
 		
 		request.getSession().getAttribute("gameList"); 
 		
@@ -69,7 +69,7 @@ public class game extends HttpServlet {
 		game.remove(Integer.parseInt(box));
 		game.add(Integer.parseInt(box), X);
 		
-		if (isgameFull(gameList)); { 
+		if (isgameFull(game)); { 
 			request.setAttribute("game over", "try again");
 			
 		} else { 
@@ -77,7 +77,7 @@ public class game extends HttpServlet {
 // https://www.tutorialspoint.com/java/java_break_statement.htm
 			
 			game.firstElement();
-			for (int game : gameList) {
+			for ( s : game) {
 		         if (game == EMPTY) {
 		            break;
 			
